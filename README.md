@@ -13,6 +13,6 @@ This repository contains the source code and documentation for YumYay Chef, incl
 
 
 
-![iti-logo-text_328x220-removebg-preview](https://github.com/user-attachments/assets/a93813aa-5f49-458f-905f-6d9ece6fc35b) 
+/YumYay-Chef-Application\Images with commits\README Images\iti-logo-text.png
 
-![Luxoft-Purple-RGB-removebg-preview_365x235-removebg-preview](https://github.com/user-attachments/assets/49fd820f-be15-4fe9-b57a-08caa36d645a)
+\YumYay-Chef-Application\Images with commits\README Images\Luxoft-Purple-RGB-removebg-preview.png
