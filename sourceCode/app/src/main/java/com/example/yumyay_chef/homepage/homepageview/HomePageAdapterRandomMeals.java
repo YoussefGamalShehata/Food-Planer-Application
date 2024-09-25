@@ -68,7 +68,12 @@ public class HomePageAdapterRandomMeals extends RecyclerView.Adapter<HomePageAda
                         .error(R.drawable.ic_launcher_foreground))
                 .into(holder.img);
         holder.txtView.setText(values.get(position).getMealName());
+        holder.img.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
     }
 
     @Override
