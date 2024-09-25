@@ -19,12 +19,12 @@ import com.example.yumyay_chef.model.Meal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePagePageActivity extends AppCompatActivity implements HomePageActivityRandomMealsView,HomaPageActivityCategoryMealsView {
+public class HomePagePageActivity extends AppCompatActivity implements HomePageActivityRandomMealsView{
     public static final String TAG = "HomeActivity";
     private RecyclerView recyclerView;
-    private RecyclerView recyclerView2;
+  //  private RecyclerView recyclerView2;
     private HomePageAdapterRandomMeals homePageAdapterRandomMeals;
-    private HomePageAdapterCategory homePageAdapterCategory;
+   // private HomePageAdapterCategory homePageAdapterCategory;
     HomePagePresenter homePagePresenter;
     LinearLayoutManager linearLayout;
     LinearLayoutManager linearLayout2;
@@ -38,17 +38,17 @@ public class HomePagePageActivity extends AppCompatActivity implements HomePageA
         recyclerView.setHasFixedSize(true);
         linearLayout = new LinearLayoutManager(this);
         homePageAdapterRandomMeals = new HomePageAdapterRandomMeals(HomePagePageActivity.this,new ArrayList<>());
-        homePagePresenter = new HomePagePresenterImpl(this,this, MealsRepositoryImpl.getInstance(MealRemoteDataSourceImpl.getInstance()));
+        homePagePresenter = new HomePagePresenterImpl(this, MealsRepositoryImpl.getInstance(MealRemoteDataSourceImpl.getInstance()));
         linearLayout.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayout);
         recyclerView.setAdapter(homePageAdapterRandomMeals);
 
-        recyclerView2.setHasFixedSize(true);
-        linearLayout2 = new LinearLayoutManager(this);
-        homePageAdapterCategory = new HomePageAdapterCategory(HomePagePageActivity.this,new ArrayList<>());
-        linearLayout2.setOrientation(RecyclerView.VERTICAL);
-        recyclerView2.setLayoutManager(linearLayout2);
-        recyclerView2.setAdapter(homePageAdapterCategory);
+//        recyclerView2.setHasFixedSize(true);
+//        linearLayout2 = new LinearLayoutManager(this);
+//        homePageAdapterCategory = new HomePageAdapterCategory(HomePagePageActivity.this,new ArrayList<>());
+//        linearLayout2.setOrientation(RecyclerView.VERTICAL);
+//        recyclerView2.setLayoutManager(linearLayout2);
+//        recyclerView2.setAdapter(homePageAdapterCategory);
 
 
 
@@ -58,7 +58,7 @@ public class HomePagePageActivity extends AppCompatActivity implements HomePageA
     }
     private void initUI(){
         recyclerView = findViewById(R.id.recView);
-        recyclerView2 = findViewById((R.id.recView2));
+       // recyclerView2 = findViewById((R.id.recView2));
     }
 
 
@@ -76,17 +76,17 @@ public class HomePagePageActivity extends AppCompatActivity implements HomePageA
         dialog.show();
     }
 
-    @Override
-    public void showCategoryData(List<Category> categoryList) {
-        homePageAdapterCategory.setList(categoryList);
-        homePageAdapterCategory.notifyDataSetChanged();
-    }
+//    @Override
+//    public void showCategoryData(List<Category> categoryList) {
+//        homePageAdapterCategory.setList(categoryList);
+//        homePageAdapterCategory.notifyDataSetChanged();
+//    }
 
-    @Override
-    public void showCategoryErrMsg(String error) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(error).setTitle("An Error Occurred");
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
+//    @Override
+//    public void showCategoryErrMsg(String error) {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setMessage(error).setTitle("An Error Occurred");
+//        AlertDialog dialog = builder.create();
+//        dialog.show();
+//    }
 }

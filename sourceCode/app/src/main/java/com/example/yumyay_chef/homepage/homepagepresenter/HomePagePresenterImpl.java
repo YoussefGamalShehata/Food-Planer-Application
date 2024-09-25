@@ -10,17 +10,17 @@ import com.example.yumyay_chef.network.NetworkCallBackForCategory;
 
 import java.util.List;
 
-public class HomePagePresenterImpl implements HomePagePresenter, NetworkCallBack, NetworkCallBackForCategory {
+public class HomePagePresenterImpl implements HomePagePresenter, NetworkCallBack<Meal>{
 
     private HomePageActivityRandomMealsView _randomView;
-    private HomaPageActivityCategoryMealsView _categoryView;
+   // private HomaPageActivityCategoryMealsView _categoryView;
     private MealsRepository _repo;
 
 
-    public HomePagePresenterImpl(HomePageActivityRandomMealsView view,HomaPageActivityCategoryMealsView  _categoryView,MealsRepository repo){
+    public HomePagePresenterImpl(HomePageActivityRandomMealsView view,MealsRepository repo){
         this._randomView = view;
         this._repo = repo;
-        this._categoryView = _categoryView;
+      //  this._categoryView = _categoryView;
     }
 
 
@@ -29,10 +29,10 @@ public class HomePagePresenterImpl implements HomePagePresenter, NetworkCallBack
         _repo.getRandomMeal(this);
     }
 
-    @Override
-    public void getCategoryMealHP() {
-        _repo.getMealCatgories(this);
-    }
+//    @Override
+//    public void getCategoryMealHP() {
+//        _repo.getMealCatgories(this);
+//    }
 
     @Override
     public void onSuccessResult(List<Meal> meals) {
@@ -44,13 +44,13 @@ public class HomePagePresenterImpl implements HomePagePresenter, NetworkCallBack
         _randomView.showRandomMealErrMsg(errorMsg);
     }
 
-    @Override
-    public void onSuccessCategoryResult(List<Category> categoryList) {
-        _categoryView.showCategoryData(categoryList);
-    }
-
-    @Override
-    public void onFailureCategoryResult(String errorMsg) {
-        _categoryView.showCategoryErrMsg(errorMsg);
-    }
+//    @Override
+//    public void onSuccessCategoryResult(List<Category> categoryList) {
+//        _categoryView.showCategoryData(categoryList);
+//    }
+//
+//    @Override
+//    public void onFailureCategoryResult(String errorMsg) {
+//        _categoryView.showCategoryErrMsg(errorMsg);
+//    }
 }

@@ -1,18 +1,17 @@
 package com.example.yumyay_chef.network;
 
-import com.example.yumyay_chef.network.allresponses.CategoryMealsResponse;
-import com.example.yumyay_chef.network.allresponses.RandomMealResponse;
+import com.example.yumyay_chef.model.Category;
+import com.example.yumyay_chef.model.Meal;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface MealService {
-    // @GET("search.php")
-    // Call<MealResponse> searchMeals(@Query("s") String searchQuery);
-
-     @GET("categories.php")
-     Call<CategoryMealsResponse> getMealCategories();
-
+    // 1 - get the list of categories
+    @GET("categories.php")
+    Call<AppResponse<Category>> getMealCategories();
+    // 3 -  get a random meal
     @GET("random.php")
-    Call<RandomMealResponse> getRandomMeal();
+    Call<AppResponse<Meal>> getRandomMeal();
+
 }

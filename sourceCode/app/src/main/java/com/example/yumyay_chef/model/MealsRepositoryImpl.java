@@ -25,14 +25,14 @@ public class MealsRepositoryImpl implements MealsRepository{
         return repo;
     }
 
-
     @Override
-    public void getRandomMeal(NetworkCallBack networkCallBack) {
+    public void getRandomMeal(NetworkCallBack<Meal> networkCallBack) {
         remoteSource.makeNetworkCallRandomMeal(networkCallBack);
     }
 
-    @Override
-    public void getMealCatgories(NetworkCallBackForCategory networkCallBackForCategory) {
-        remoteSource.makeNetworkCallCategoryMeals(networkCallBackForCategory);
-    }
+
+//    @Override
+//    public void getMealCatgories(NetworkCallBackForCategory networkCallBackForCategory) {
+//        remoteSource.makeNetworkCallCategoryMeals(networkCallBackForCategory);
+//    }
 }
