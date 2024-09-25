@@ -115,7 +115,7 @@ public class Meal {
         for (Field field : fields) {
             if (field.getName().startsWith("ingredient")) {
                 try {
-                    field.setAccessible(true);
+        *            field.setAccessible(true);
                     String value = (String) field.get(this);
                     if (value != null && !value.isEmpty()) {
                         ingredients.add(new Ingredient(value));

@@ -1,9 +1,15 @@
 package com.example.yumyay_chef.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Category {
+    @SerializedName("idCategory")
     public String idCategory;
+    @SerializedName("strCategory")
     public String strCategory;
+    @SerializedName("strCategoryThumb")
     public String strCategoryThumb;
+
     public String strCategoryDescription;
 
     public String getIdCategory() {

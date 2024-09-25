@@ -2,6 +2,7 @@ package com.example.yumyay_chef.network;
 
 import androidx.annotation.NonNull;
 
+import com.example.yumyay_chef.model.Category;
 import com.example.yumyay_chef.model.Meal;
 
 import java.util.List;
@@ -52,5 +53,24 @@ public class MealRemoteDataSourceImpl implements MealRemoteDataSource{
             }
         });
 
+    }
+    @Override
+    public void makeNetworkCallCategoryMeal(NetworkCallBack<Category> networkCallback) {
+        mealService.getMealCategories().enqueue(new Callback<AppResponse<Category>>() {
+
+            @Override
+            public void onResponse(@NonNull Call<AppResponse<Category>> call, @NonNull retrofit2.Response<AppResponse<Category>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    networkCallback.onSuccessResult(response.body().categories);
+                } else {
+                    networkCallback.onFailureResult("Failed to fetch category");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AppResponse<Category>> call, Throwable throwable) {
+                networkCallback.onFailureResult(throwable.getMessage());
+            }
+        });
     }
 }
