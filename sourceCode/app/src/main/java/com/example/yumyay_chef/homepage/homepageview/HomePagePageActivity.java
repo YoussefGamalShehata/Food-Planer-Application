@@ -41,24 +41,24 @@ public class HomePagePageActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment selectedFragment = null;
+                Fragment currentFrag = null;
                 int Item = item.getItemId();
                 if (Item==R.id.page_1)
                 {
-                    selectedFragment=new HomeFragment();
+                    currentFrag=new HomeFragment();
                 }
                 else if (Item==R.id.page_2){
-                    selectedFragment=new SearchFragment();
+                    currentFrag=new SearchFragment();
                 }
                 else if (Item==R.id.page_3){
-                    selectedFragment=new FavoriteFragment();
+                    currentFrag=new FavoriteFragment();
                 }
                 else if (Item==R.id.page_4){
-                    selectedFragment=new CalenderFragment();
+                    currentFrag=new CalenderFragment();
                 }
 
-                if (selectedFragment != null) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                if (currentFrag != null) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, currentFrag).commit();
                 }
                 return true;
             }

@@ -2,7 +2,9 @@ package com.example.yumyay_chef.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Meal {
+import java.io.Serializable;
+
+public class Meal implements Serializable {
     @SerializedName("idMeal")
     private String mealId;
 

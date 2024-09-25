@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.yumyay_chef.MealContentFragment;
 import com.example.yumyay_chef.R;
 import com.example.yumyay_chef.model.Meal;
 
@@ -71,7 +72,11 @@ public class HomePageAdapterRandomMeals extends RecyclerView.Adapter<HomePageAda
         holder.img.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                MealContentFragment mealFragment=MealContentFragment.getInstance(values.get(position));
 
+                ((HomePagePageActivity) context).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container,mealFragment)
+                        .addToBackStack(null).commit();
             }
         });
     }
