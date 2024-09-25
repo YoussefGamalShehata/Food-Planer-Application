@@ -1,10 +1,6 @@
-package com.example.yumyay_chef.network.allresponses;
+package com.example.yumyay_chef.model;
 
 import com.google.gson.annotations.SerializedName;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Meal {
     @SerializedName("idMeal")

@@ -6,20 +6,20 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/img"
+        android:id="@+id/img2"
         android:layout_width="191dp"
         android:layout_height="173dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:layout_marginBottom="184dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView2"
         android:layout_width="59dp"
         android:layout_height="19dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="307dp"
         android:text="TextView"
         android:textColor="#000000"
         android:textSize="16sp"

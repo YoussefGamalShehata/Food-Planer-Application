@@ -1,6 +1,6 @@
 package com.example.yumyay_chef.network;
 
-import com.example.yumyay_chef.network.allresponses.Meal;
+import com.example.yumyay_chef.model.Meal;
 
 import java.util.List;
 

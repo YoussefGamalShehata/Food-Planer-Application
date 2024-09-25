@@ -4,4 +4,5 @@ import android.net.ConnectivityManager;
 
 public interface MealRemoteDataSource {
     public void makeNetworkCallRandomMeal(NetworkCallBack networkCallBack);
+    public void makeNetworkCallCategoryMeals(NetworkCallBackForCategory networkCallBackForCategory);
 }

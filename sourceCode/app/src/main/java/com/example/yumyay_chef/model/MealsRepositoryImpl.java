@@ -4,6 +4,7 @@ import com.example.yumyay_chef.network.MealRemoteDataSource;
 import com.example.yumyay_chef.network.NetworkCallBack;
 import com.example.yumyay_chef.network.MealRemoteDataSource;
 import com.example.yumyay_chef.network.NetworkCallBack;
+import com.example.yumyay_chef.network.NetworkCallBackForCategory;
 
 public class MealsRepositoryImpl implements MealsRepository{
 
@@ -28,5 +29,10 @@ public class MealsRepositoryImpl implements MealsRepository{
     @Override
     public void getRandomMeal(NetworkCallBack networkCallBack) {
         remoteSource.makeNetworkCallRandomMeal(networkCallBack);
+    }
+
+    @Override
+    public void getMealCatgories(NetworkCallBackForCategory networkCallBackForCategory) {
+        remoteSource.makeNetworkCallCategoryMeals(networkCallBackForCategory);
     }
 }

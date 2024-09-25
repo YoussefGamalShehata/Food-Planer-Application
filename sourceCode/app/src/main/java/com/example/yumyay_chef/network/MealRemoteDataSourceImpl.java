@@ -1,8 +1,7 @@
 package com.example.yumyay_chef.network;
 
-import android.net.ConnectivityManager;
-
-import com.example.yumyay_chef.network.allresponses.Meal;
+import com.example.yumyay_chef.model.Meal;
+import com.example.yumyay_chef.network.allresponses.CategoryMealsResponse;
 import com.example.yumyay_chef.network.allresponses.RandomMealResponse;
 
 import java.util.List;
@@ -48,6 +47,23 @@ public class MealRemoteDataSourceImpl implements MealRemoteDataSource{
             @Override
             public void onFailure(Call<RandomMealResponse> call, Throwable throwable) {
                 networkCallBack.onFailureResult(throwable.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void makeNetworkCallCategoryMeals(NetworkCallBackForCategory networkCallBackForCategory) {
+        mealService.getMealCategories().enqueue(new Callback<CategoryMealsResponse>() {
+            @Override
+            public void onResponse(Call<CategoryMealsResponse> call, Response<CategoryMealsResponse> response) {
+                if(response.isSuccessful()){
+                    networkCallBackForCategory.onSuccessCategoryResult(response.body().getCategories());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CategoryMealsResponse> call, Throwable throwable) {
+                networkCallBackForCategory.onFailureCategoryResult(throwable.getMessage());
             }
         });
     }

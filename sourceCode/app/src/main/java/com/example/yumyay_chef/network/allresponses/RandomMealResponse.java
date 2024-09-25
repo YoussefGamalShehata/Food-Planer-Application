@@ -1,5 +1,6 @@
 package com.example.yumyay_chef.network.allresponses;
 
+import com.example.yumyay_chef.model.Meal;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
