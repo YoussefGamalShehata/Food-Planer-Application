@@ -56,4 +56,5 @@ dependencies {
     implementation ("com.google.firebase:firebase-firestore:25.1.0")
     implementation ("androidx.navigation:navigation-fragment-ktx:2.8.1")
     implementation ("androidx.navigation:navigation-ui-ktx:2.8.1")
+    implementation("androidx.cardview:cardview:1.0.0")
 }
