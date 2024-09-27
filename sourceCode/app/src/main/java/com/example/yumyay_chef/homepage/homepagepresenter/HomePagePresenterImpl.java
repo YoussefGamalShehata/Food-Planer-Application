@@ -1,8 +1,6 @@
 package com.example.yumyay_chef.homepage.homepagepresenter;
 
-import com.example.yumyay_chef.homepage.homepageview.HomaPageActivityCategoryMealsView;
-import com.example.yumyay_chef.homepage.homepageview.HomePageActivityRandomMealsView;
-import com.example.yumyay_chef.homepage.homepageview.HomePagePageActivity;
+import com.example.yumyay_chef.homepage.homepageview.HomePageActivityView;
 import com.example.yumyay_chef.model.Category;
 import com.example.yumyay_chef.model.MealsRepository;
 import com.example.yumyay_chef.model.Meal;
@@ -12,15 +10,13 @@ import java.util.List;
 
 public class HomePagePresenterImpl implements HomePagePresenter{
 
-    private HomePageActivityRandomMealsView _randomView;
-    private HomaPageActivityCategoryMealsView _categoryView;
+    private HomePageActivityView _View;
     private MealsRepository _repo;
 
 
-    public HomePagePresenterImpl(HomePageActivityRandomMealsView randomview, HomaPageActivityCategoryMealsView categoryView, MealsRepository repo){
-        this._randomView = randomview;
+    public HomePagePresenterImpl(HomePageActivityView randomview, MealsRepository repo){
+        this._View = randomview;
         this._repo = repo;
-        this._categoryView = _categoryView;
     }
 
 
@@ -40,12 +36,12 @@ public class HomePagePresenterImpl implements HomePagePresenter{
     private class RandomMealCallback implements NetworkCallBack<Meal> {
         @Override
         public void onSuccessResult(List<Meal> pojo) {
-            _randomView.showRandomMealData(pojo);
+            _View.showRandomMealData(pojo);
         }
 
         @Override
         public void onFailureResult(String errorMsg) {
-            _randomView.showRandomMealErrMsg(errorMsg);
+            _View.showRandomMealErrMsg(errorMsg);
         }
     }
 
@@ -53,12 +49,12 @@ public class HomePagePresenterImpl implements HomePagePresenter{
     private class CategoryMealCallback implements NetworkCallBack<Category> {
         @Override
         public void onSuccessResult(List<Category> pojo) {
-            _categoryView.showCategoryData(pojo);
+            _View.showCategoryData(pojo);
         }
 
         @Override
         public void onFailureResult(String errorMsg) {
-            _categoryView.showCategoryErrMsg(errorMsg);
+            _View.showCategoryErrMsg(errorMsg);
         }
     }
 

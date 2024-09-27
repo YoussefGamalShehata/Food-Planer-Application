@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.yumyay_chef.homepage.homepageview.HomePagePageActivity;
+import com.example.yumyay_chef.homepage.homepageview.HomePageActivity;
 
 public class MainActivity extends AppCompatActivity {
     Animation animation;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         txtView.postOnAnimationDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent outIntent = new Intent(MainActivity.this, HomePagePageActivity.class);
+                Intent outIntent = new Intent(MainActivity.this, HomePageActivity.class);
                 startActivity(outIntent);
                 finish();
             }

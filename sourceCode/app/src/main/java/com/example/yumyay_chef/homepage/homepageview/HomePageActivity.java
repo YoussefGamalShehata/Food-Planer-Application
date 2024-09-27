@@ -5,29 +5,17 @@ import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yumyay_chef.CalenderFragment;
 import com.example.yumyay_chef.FavoriteFragment;
 import com.example.yumyay_chef.HomeFragment;
 import com.example.yumyay_chef.R;
 import com.example.yumyay_chef.SearchFragment;
-import com.example.yumyay_chef.homepage.homepagepresenter.HomePagePresenter;
-import com.example.yumyay_chef.homepage.homepagepresenter.HomePagePresenterImpl;
-import com.example.yumyay_chef.model.Category;
-import com.example.yumyay_chef.model.MealsRepositoryImpl;
-import com.example.yumyay_chef.network.MealRemoteDataSourceImpl;
-import com.example.yumyay_chef.model.Meal;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class HomePagePageActivity extends AppCompatActivity {
+public class HomePageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
