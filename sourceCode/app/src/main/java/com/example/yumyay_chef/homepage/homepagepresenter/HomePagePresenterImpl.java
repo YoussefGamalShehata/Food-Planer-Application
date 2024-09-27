@@ -14,25 +14,22 @@ public class HomePagePresenterImpl implements HomePagePresenter{
     private MealsRepository _repo;
 
 
-    public HomePagePresenterImpl(HomePageActivityView randomview, MealsRepository repo){
-        this._View = randomview;
+    public HomePagePresenterImpl(HomePageActivityView view, MealsRepository repo){
+        this._View = view;
         this._repo = repo;
     }
 
 
     @Override
     public void getRandomMealHP() {
-        // Call repository method and pass the inner callback class instance
         _repo.getRandomMeal(new RandomMealCallback());
     }
 
     @Override
     public void getCategoryMealHP() {
-        // Call repository method and pass the inner callback class instance
-        _repo.getMealCatgories(new CategoryMealCallback());
+        _repo.getMealCategories(new CategoryMealCallback());
     }
 
-    // Inner class for handling random meal callback
     private class RandomMealCallback implements NetworkCallBack<Meal> {
         @Override
         public void onSuccessResult(List<Meal> pojo) {
@@ -45,7 +42,6 @@ public class HomePagePresenterImpl implements HomePagePresenter{
         }
     }
 
-    // Inner class for handling category meal callback
     private class CategoryMealCallback implements NetworkCallBack<Category> {
         @Override
         public void onSuccessResult(List<Category> pojo) {

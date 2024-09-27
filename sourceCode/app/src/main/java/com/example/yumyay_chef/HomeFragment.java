@@ -29,10 +29,12 @@ public class HomeFragment extends Fragment implements HomePageActivityView {
 
     public static final String TAG = "HomeActivity";
     private RecyclerView recyclerView;
+    private RecyclerView recyclerView2;
     private HomePageAdapter homePageAdapter;
     private HomePageAdapterCategory homePageAdapterCategory;
     HomePagePresenter homePagePresenter;
     LinearLayoutManager linearLayout;
+    LinearLayoutManager linearLayout2;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,12 +54,21 @@ public class HomeFragment extends Fragment implements HomePageActivityView {
         linearLayout.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayout);
         recyclerView.setAdapter(homePageAdapter);
+        recyclerView2.setHasFixedSize(true);
+        linearLayout2 = new LinearLayoutManager(getActivity());
+        homePageAdapterCategory = new HomePageAdapterCategory(getActivity(),new ArrayList<>());
+        linearLayout2.setOrientation(RecyclerView.HORIZONTAL);
+        recyclerView2.setLayoutManager(linearLayout2);
+        recyclerView2.setAdapter(homePageAdapterCategory);
+
         homePagePresenter.getRandomMealHP();
+        homePagePresenter.getCategoryMealHP();
         return  view;
     }
 
     private void initUI(View v){
         recyclerView = v.findViewById(R.id.recView);
+        recyclerView2 = v.findViewById(R.id.recView2);
     }
 
 
@@ -76,8 +87,8 @@ public class HomeFragment extends Fragment implements HomePageActivityView {
     }
 
     @Override
-    public void showCategoryData(List<Category> meals) {
-        homePageAdapterCategory.setList(meals);
+    public void showCategoryData(List<Category> categories) {
+        homePageAdapterCategory.setList(categories);
         homePageAdapterCategory.notifyDataSetChanged();
     }
 

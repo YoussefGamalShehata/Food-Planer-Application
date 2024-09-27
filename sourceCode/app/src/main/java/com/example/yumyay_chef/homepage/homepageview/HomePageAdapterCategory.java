@@ -33,7 +33,7 @@ public class HomePageAdapterCategory extends RecyclerView.Adapter<HomePageAdapte
         this.categoryList = categoryList;
     }
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private ImageView img2;
+        private ImageView img;
         private TextView txtView;
         public ConstraintLayout constraintLayout;
         public View layout;
@@ -41,8 +41,8 @@ public class HomePageAdapterCategory extends RecyclerView.Adapter<HomePageAdapte
         public ViewHolder(View v) {
             super(v);
             layout = v;
-            img2 = v.findViewById(R.id.img2);
-            txtView = v.findViewById(R.id.textView2);
+            img = v.findViewById(R.id.img);
+            txtView = v.findViewById(R.id.textView);
             constraintLayout = v.findViewById(R.id.main);
         }
     }
@@ -65,7 +65,7 @@ public class HomePageAdapterCategory extends RecyclerView.Adapter<HomePageAdapte
                 .apply(new RequestOptions().override(200,200)
                         .placeholder(R.drawable.ic_launcher_background)
                         .error(R.drawable.ic_launcher_foreground))
-                .into(holder.img2);
+                .into(holder.img);
         holder.txtView.setText(categoryList.get(position).getStrCategory());
     }
 

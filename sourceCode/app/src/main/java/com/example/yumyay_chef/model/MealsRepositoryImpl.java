@@ -28,7 +28,7 @@ public class MealsRepositoryImpl implements MealsRepository{
     }
 
     @Override
-    public void getMealCatgories(NetworkCallBack<Category> networkCallBack) {
+    public void getMealCategories(NetworkCallBack<Category> networkCallBack) {
         remoteSource.makeNetworkCallCategoryMeal(networkCallBack);
     }
 
