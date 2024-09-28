@@ -19,12 +19,12 @@ import com.example.yumyay_chef.model.Category;
 
 import java.util.List;
 
-public class HomePageAdapterCategory extends RecyclerView.Adapter<HomePageAdapterCategory.ViewHolder>{
+public class HomePageCategoryAdapter extends RecyclerView.Adapter<HomePageCategoryAdapter.ViewHolder>{
 
     private static final String TAG = "RecyclerView2";
     private final Context context;
     private List<Category> categoryList;
-    public HomePageAdapterCategory(Context context, List<Category> categoryList) {
+    public HomePageCategoryAdapter(Context context, List<Category> categoryList) {
         this.context = context;
         this.categoryList = categoryList;
     }
@@ -51,16 +51,16 @@ public class HomePageAdapterCategory extends RecyclerView.Adapter<HomePageAdapte
 
     @NonNull
     @Override
-    public HomePageAdapterCategory.ViewHolder onCreateViewHolder(@NonNull ViewGroup recyclerView, int viewType) {
+    public HomePageCategoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup recyclerView, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(recyclerView.getContext());
         View v = inflater.inflate(R.layout.test2, recyclerView, false);
-        HomePageAdapterCategory.ViewHolder vh = new HomePageAdapterCategory.ViewHolder(v);
+        HomePageCategoryAdapter.ViewHolder vh = new HomePageCategoryAdapter.ViewHolder(v);
         Log.i(TAG, "===== onCreateViewHolder =====");
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HomePageAdapterCategory.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HomePageCategoryAdapter.ViewHolder holder, int position) {
         Glide.with(context).load(categoryList.get(position).getStrCategoryThumb())
                 .apply(new RequestOptions().override(200,200)
                         .placeholder(R.drawable.ic_launcher_background)

@@ -1,25 +1,47 @@
 package com.example.yumyay_chef.model;
 
+import androidx.lifecycle.LiveData;
+
+import com.example.yumyay_chef.db.MealsLocalDataSource;
 import com.example.yumyay_chef.network.MealRemoteDataSource;
 import com.example.yumyay_chef.network.NetworkCallBack;
+
+import java.util.List;
 
 public class MealsRepositoryImpl implements MealsRepository{
 
     MealRemoteDataSource remoteSource;
+    MealsLocalDataSource localDataSource;
     private static MealsRepositoryImpl repo = null;
 
-    private MealsRepositoryImpl (MealRemoteDataSource remoteSource)
+    private MealsRepositoryImpl (MealRemoteDataSource remoteSource , MealsLocalDataSource localDataSource)
     {
         this.remoteSource = remoteSource;
+        this.localDataSource = localDataSource;
     }
 
-    public static MealsRepositoryImpl getInstance(MealRemoteDataSource remoteSource)
+    public static MealsRepositoryImpl getInstance(MealRemoteDataSource remoteSource , MealsLocalDataSource localDataSource)
     {
         if(repo == null)
         {
-            repo = new MealsRepositoryImpl(remoteSource);
+            repo = new MealsRepositoryImpl(remoteSource,localDataSource);
         }
         return repo;
+    }
+
+    @Override
+    public LiveData<List<Meal>> getStoredMeals() {
+        return localDataSource.getAllStoredMeals();
+    }
+
+    @Override
+    public void insertMeal(Meal meal) {
+        localDataSource.insertMeal(meal);
+    }
+
+    @Override
+    public void deleteMeal(Meal meal) {
+        localDataSource.deleteMeal(meal);
     }
 
     @Override
@@ -31,6 +53,4 @@ public class MealsRepositoryImpl implements MealsRepository{
     public void getMealCategories(NetworkCallBack<Category> networkCallBack) {
         remoteSource.makeNetworkCallCategoryMeal(networkCallBack);
     }
-
-
 }

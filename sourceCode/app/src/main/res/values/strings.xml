@@ -16,4 +16,8 @@
     <string name="welcom">Welcome To</string>
     <string name="dailyinspiration">Daily Inspiration</string>
     <string name="categories">Categories</string>
+    <string name="Favorites" />
+    <string name="favorite">Favorites</string>
+    <string name="removefromefav">Remove From Favorite</string>
+    <string name="addfav">Add To Favorites</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.yumyay_chef.homepage.homepageview;
+package com.example.yumyay_chef;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,14 +8,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.yumyay_chef.CalenderFragment;
-import com.example.yumyay_chef.FavoriteFragment;
-import com.example.yumyay_chef.HomeFragment;
-import com.example.yumyay_chef.R;
-import com.example.yumyay_chef.SearchFragment;
+import com.example.yumyay_chef.favoritemeals.view.FavoritePageFragment;
+import com.example.yumyay_chef.homepage.homepageview.HomePageFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomePageActivity extends AppCompatActivity {
+public class AppNavigationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +21,7 @@ public class HomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         BottomNavigationView bottomNavigationView =findViewById(R.id.bottom_navigation);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomePageFragment()).commit();
         }
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -33,13 +30,13 @@ public class HomePageActivity extends AppCompatActivity {
                 int Item = item.getItemId();
                 if (Item==R.id.page_1)
                 {
-                    currentFrag=new HomeFragment();
+                    currentFrag=new HomePageFragment();
                 }
                 else if (Item==R.id.page_2){
                     currentFrag=new SearchFragment();
                 }
                 else if (Item==R.id.page_3){
-                    currentFrag=new FavoriteFragment();
+                    currentFrag=new FavoritePageFragment();
                 }
                 else if (Item==R.id.page_4){
                     currentFrag=new CalenderFragment();

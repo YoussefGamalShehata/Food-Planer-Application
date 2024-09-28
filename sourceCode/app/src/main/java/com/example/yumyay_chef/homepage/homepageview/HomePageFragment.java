@@ -1,4 +1,4 @@
-package com.example.yumyay_chef;
+package com.example.yumyay_chef.homepage.homepageview;
 
 import android.os.Bundle;
 
@@ -11,11 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.yumyay_chef.R;
+import com.example.yumyay_chef.db.MealsLocalDataSourceImpl;
 import com.example.yumyay_chef.homepage.homepagepresenter.HomePagePresenter;
 import com.example.yumyay_chef.homepage.homepagepresenter.HomePagePresenterImpl;
-import com.example.yumyay_chef.homepage.homepageview.HomePageActivityView;
-import com.example.yumyay_chef.homepage.homepageview.HomePageAdapterCategory;
-import com.example.yumyay_chef.homepage.homepageview.HomePageAdapter;
 import com.example.yumyay_chef.model.Category;
 import com.example.yumyay_chef.model.Meal;
 import com.example.yumyay_chef.model.MealsRepositoryImpl;
@@ -25,13 +24,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment implements HomePageActivityView {
+public class HomePageFragment extends Fragment implements HomePageFragmentView {
 
     public static final String TAG = "HomeActivity";
     private RecyclerView recyclerView;
     private RecyclerView recyclerView2;
-    private HomePageAdapter homePageAdapter;
-    private HomePageAdapterCategory homePageAdapterCategory;
+    private HomePageRandomAdapter homePageRandomAdapter;
+    private HomePageCategoryAdapter homePageCategoryAdapter;
     HomePagePresenter homePagePresenter;
     LinearLayoutManager linearLayout;
     LinearLayoutManager linearLayout2;
@@ -49,17 +48,17 @@ public class HomeFragment extends Fragment implements HomePageActivityView {
         initUI(view);
         recyclerView.setHasFixedSize(true);
         linearLayout = new LinearLayoutManager(getActivity());
-        homePageAdapter = new HomePageAdapter(getActivity(),new ArrayList<>());
-        homePagePresenter = new HomePagePresenterImpl(this, MealsRepositoryImpl.getInstance(MealRemoteDataSourceImpl.getInstance()));
+        homePageRandomAdapter = new HomePageRandomAdapter(getActivity(),new ArrayList<>());
+        homePagePresenter = new HomePagePresenterImpl(this, MealsRepositoryImpl.getInstance(MealRemoteDataSourceImpl.getInstance(), MealsLocalDataSourceImpl.getInstance(getContext())));
         linearLayout.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayout);
-        recyclerView.setAdapter(homePageAdapter);
+        recyclerView.setAdapter(homePageRandomAdapter);
         recyclerView2.setHasFixedSize(true);
         linearLayout2 = new LinearLayoutManager(getActivity());
-        homePageAdapterCategory = new HomePageAdapterCategory(getActivity(),new ArrayList<>());
+        homePageCategoryAdapter = new HomePageCategoryAdapter(getActivity(),new ArrayList<>());
         linearLayout2.setOrientation(RecyclerView.HORIZONTAL);
         recyclerView2.setLayoutManager(linearLayout2);
-        recyclerView2.setAdapter(homePageAdapterCategory);
+        recyclerView2.setAdapter(homePageCategoryAdapter);
 
         homePagePresenter.getRandomMealHP();
         homePagePresenter.getCategoryMealHP();
@@ -74,8 +73,8 @@ public class HomeFragment extends Fragment implements HomePageActivityView {
 
     @Override
     public void showRandomMealData(List<Meal> meals) {
-        homePageAdapter.setList(meals);
-        homePageAdapter.notifyDataSetChanged();
+        homePageRandomAdapter.setList(meals);
+        homePageRandomAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -88,8 +87,8 @@ public class HomeFragment extends Fragment implements HomePageActivityView {
 
     @Override
     public void showCategoryData(List<Category> categories) {
-        homePageAdapterCategory.setList(categories);
-        homePageAdapterCategory.notifyDataSetChanged();
+        homePageCategoryAdapter.setList(categories);
+        homePageCategoryAdapter.notifyDataSetChanged();
     }
 
     @Override

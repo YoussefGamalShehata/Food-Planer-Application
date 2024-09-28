@@ -1,6 +1,6 @@
 package com.example.yumyay_chef.homepage.homepagepresenter;
 
-import com.example.yumyay_chef.homepage.homepageview.HomePageActivityView;
+import com.example.yumyay_chef.homepage.homepageview.HomePageFragmentView;
 import com.example.yumyay_chef.model.Category;
 import com.example.yumyay_chef.model.MealsRepository;
 import com.example.yumyay_chef.model.Meal;
@@ -10,11 +10,11 @@ import java.util.List;
 
 public class HomePagePresenterImpl implements HomePagePresenter{
 
-    private HomePageActivityView _View;
+    private HomePageFragmentView _View;
     private MealsRepository _repo;
 
 
-    public HomePagePresenterImpl(HomePageActivityView view, MealsRepository repo){
+    public HomePagePresenterImpl(HomePageFragmentView view, MealsRepository repo){
         this._View = view;
         this._repo = repo;
     }
