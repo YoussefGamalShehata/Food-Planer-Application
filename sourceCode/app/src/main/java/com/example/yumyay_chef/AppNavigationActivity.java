@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.yumyay_chef.favoritemeals.view.FavoritePageFragment;
 import com.example.yumyay_chef.homepage.homepageview.HomePageFragment;
+import com.example.yumyay_chef.search.view.searchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AppNavigationActivity extends AppCompatActivity {
@@ -33,7 +34,7 @@ public class AppNavigationActivity extends AppCompatActivity {
                     currentFrag=new HomePageFragment();
                 }
                 else if (Item==R.id.page_2){
-                    currentFrag=new SearchFragment();
+                    currentFrag=new searchFragment();
                 }
                 else if (Item==R.id.page_3){
                     currentFrag=new FavoritePageFragment();

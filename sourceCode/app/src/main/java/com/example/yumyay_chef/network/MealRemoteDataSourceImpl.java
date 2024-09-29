@@ -93,4 +93,84 @@ public class MealRemoteDataSourceImpl implements MealRemoteDataSource{
             }
         });
     }
+
+    @Override
+    public void makeNetworkCallCountryMealById(String country, NetworkCallBack<Meal> networkCallBack) {
+        mealService.getMealByCountry(country).enqueue(new Callback<AppResponse<Meal>>() {
+
+            @Override
+            public void onResponse(@NonNull Call<AppResponse<Meal>> call, @NonNull retrofit2.Response<AppResponse<Meal>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    networkCallBack.onSuccessResult(response.body().meals);
+                } else {
+                    networkCallBack.onFailureResult("Failed to fetch random meal");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AppResponse<Meal>> call, Throwable throwable) {
+                networkCallBack.onFailureResult(throwable.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void makeNetworkCallMealByName(String name, NetworkCallBack<Meal> networkCallBack) {
+        mealService.getFoodByName(name).enqueue(new Callback<AppResponse<Meal>>() {
+
+            @Override
+            public void onResponse(@NonNull Call<AppResponse<Meal>> call, @NonNull retrofit2.Response<AppResponse<Meal>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    networkCallBack.onSuccessResult(response.body().meals);
+                } else {
+                    networkCallBack.onFailureResult("Failed to fetch random meal");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AppResponse<Meal>> call, Throwable throwable) {
+                networkCallBack.onFailureResult(throwable.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void makeNetworkCallIngradiant(String ingrediant, NetworkCallBack<Meal> networkCallBack) {
+        mealService.getMealByIngredient(ingrediant).enqueue(new Callback<AppResponse<Meal>>() {
+
+            @Override
+            public void onResponse(@NonNull Call<AppResponse<Meal>> call, @NonNull retrofit2.Response<AppResponse<Meal>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    networkCallBack.onSuccessResult(response.body().meals);
+                } else {
+                    networkCallBack.onFailureResult("Failed to fetch random meal");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AppResponse<Meal>> call, Throwable throwable) {
+                networkCallBack.onFailureResult(throwable.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void makeNetworkCallFoodById(String id, NetworkCallBack<Meal> networkCallBack) {
+        mealService.getMealById(id).enqueue(new Callback<AppResponse<Meal>>() {
+
+            @Override
+            public void onResponse(@NonNull Call<AppResponse<Meal>> call, @NonNull retrofit2.Response<AppResponse<Meal>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    networkCallBack.onSuccessResult(response.body().meals);
+                } else {
+                    networkCallBack.onFailureResult("Failed to fetch random meal");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AppResponse<Meal>> call, Throwable throwable) {
+                networkCallBack.onFailureResult(throwable.getMessage());
+            }
+        });
+    }
 }
