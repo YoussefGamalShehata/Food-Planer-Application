@@ -10,4 +10,6 @@ public interface HomePageFragmentView {
     public void showRandomMealErrMsg(String error);
     public void showCategoryData(List<Category> meals);
     public void showCategoryErrMsg(String error);
+    public void showCategoryMeal(List<Meal> food);
+    public void showCategoryMealErrMsg(String error);
 }

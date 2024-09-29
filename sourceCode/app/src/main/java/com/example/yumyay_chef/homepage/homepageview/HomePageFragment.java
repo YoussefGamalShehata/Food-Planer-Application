@@ -24,16 +24,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomePageFragment extends Fragment implements HomePageFragmentView {
+public class HomePageFragment extends Fragment implements HomePageFragmentView,HomePageCategoryAdapter.OnCategoryClickListener {
 
     public static final String TAG = "HomeActivity";
     private RecyclerView recyclerView;
     private RecyclerView recyclerView2;
+    private RecyclerView recyclerView3;
     private HomePageRandomAdapter homePageRandomAdapter;
     private HomePageCategoryAdapter homePageCategoryAdapter;
+    private HomePageCategoryDetailsAdapter homePageCategoryDetailsAdapter;
     HomePagePresenter homePagePresenter;
     LinearLayoutManager linearLayout;
     LinearLayoutManager linearLayout2;
+    LinearLayoutManager  linearLayout3;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +56,7 @@ public class HomePageFragment extends Fragment implements HomePageFragmentView {
         linearLayout.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayout);
         recyclerView.setAdapter(homePageRandomAdapter);
+
         recyclerView2.setHasFixedSize(true);
         linearLayout2 = new LinearLayoutManager(getActivity());
         homePageCategoryAdapter = new HomePageCategoryAdapter(getActivity(),new ArrayList<>());
@@ -60,42 +64,61 @@ public class HomePageFragment extends Fragment implements HomePageFragmentView {
         recyclerView2.setLayoutManager(linearLayout2);
         recyclerView2.setAdapter(homePageCategoryAdapter);
 
+        recyclerView3.setHasFixedSize(true);
+        linearLayout3 = new LinearLayoutManager(getActivity());
+        homePageCategoryDetailsAdapter = new HomePageCategoryDetailsAdapter(getActivity(),new ArrayList<>());
+        linearLayout3.setOrientation(RecyclerView.HORIZONTAL);
+        recyclerView3.setLayoutManager(linearLayout3);
+        recyclerView3.setAdapter(homePageCategoryDetailsAdapter);
+
         homePagePresenter.getRandomMealHP();
         homePagePresenter.getCategoryMealHP();
+        homePagePresenter.getMealsByCategoryHP(HomePageCategoryAdapter.id);
         return  view;
     }
-
     private void initUI(View v){
         recyclerView = v.findViewById(R.id.recView);
         recyclerView2 = v.findViewById(R.id.recView2);
+        recyclerView3=v.findViewById(R.id.recView3);
     }
-
-
     @Override
     public void showRandomMealData(List<Meal> meals) {
         homePageRandomAdapter.setList(meals);
         homePageRandomAdapter.notifyDataSetChanged();
     }
-
     @Override
-    public void showRandomMealErrMsg(String error) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage(error).setTitle("An Error Occurred");
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    @Override
-    public void showCategoryData(List<Category> categories) {
-        homePageCategoryAdapter.setList(categories);
-        homePageCategoryAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void showCategoryErrMsg(String error) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage(error).setTitle("An Error Occurred");
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        public void showRandomMealErrMsg(String error) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(error).setTitle("An Error Occurred");
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
+        @Override
+        public void showCategoryData(List<Category> categories) {
+            homePageCategoryAdapter.setList(categories);
+            homePageCategoryAdapter.notifyDataSetChanged();
+        }
+        @Override
+        public void showCategoryErrMsg(String error) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(error).setTitle("An Error Occurred");
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
+        @Override
+        public void showCategoryMeal(List<Meal> meal) {
+            homePageCategoryDetailsAdapter.setList(meal);
+            homePageCategoryDetailsAdapter.notifyDataSetChanged();
+        }
+        @Override
+        public void showCategoryMealErrMsg(String error) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(error).setTitle("An Error Occurred");
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
+        @Override
+        public void onCategoryClick(String categoryId) {
+            homePagePresenter.getMealsByCategoryHP(categoryId);
     }
 }

@@ -12,5 +12,6 @@ public interface MealsRepository {
     public void deleteMeal(Meal meal);
     public void getRandomMeal(NetworkCallBack<Meal> networkCallBack);
     public void getMealCategories(NetworkCallBack<Category> networkCallBack);
+    void getMealById(String id , NetworkCallBack<Meal> callback);
 
 }

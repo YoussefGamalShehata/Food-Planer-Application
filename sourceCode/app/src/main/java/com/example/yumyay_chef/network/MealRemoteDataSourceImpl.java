@@ -9,6 +9,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -70,6 +71,25 @@ public class MealRemoteDataSourceImpl implements MealRemoteDataSource{
             @Override
             public void onFailure(Call<AppResponse<Category>> call, Throwable throwable) {
                 networkCallback.onFailureResult(throwable.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void makeNetworkCallCategoryMealById(String category, NetworkCallBack<Meal> networkCallBack) {
+        mealService.getMealByIdCategory(category).enqueue(new Callback<AppResponse<Meal>>() {
+            @Override
+            public void onResponse(Call<AppResponse<Meal>> call, Response<AppResponse<Meal>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    networkCallBack.onSuccessResult(response.body().meals);
+                } else {
+                    networkCallBack.onFailureResult("Failed to fetch category");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AppResponse<Meal>> call, Throwable throwable) {
+                networkCallBack.onFailureResult(throwable.getMessage());
             }
         });
     }

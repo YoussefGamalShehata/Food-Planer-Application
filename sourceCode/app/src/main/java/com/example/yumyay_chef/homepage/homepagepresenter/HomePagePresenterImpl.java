@@ -30,6 +30,11 @@ public class HomePagePresenterImpl implements HomePagePresenter{
         _repo.getMealCategories(new CategoryMealCallback());
     }
 
+    @Override
+    public void getMealsByCategoryHP(String id) {
+        _repo.getMealById(id,new CategoryFoodCallback());
+    }
+
     private class RandomMealCallback implements NetworkCallBack<Meal> {
         @Override
         public void onSuccessResult(List<Meal> pojo) {
@@ -52,6 +57,19 @@ public class HomePagePresenterImpl implements HomePagePresenter{
         public void onFailureResult(String errorMsg) {
             _View.showCategoryErrMsg(errorMsg);
         }
+    }
+    private class CategoryFoodCallback implements NetworkCallBack<Meal> {
+
+        @Override
+        public void onSuccessResult(List<Meal> meal) {
+            _View.showCategoryMeal(meal);
+        }
+
+        @Override
+        public void onFailureResult(String errorMsg) {
+            _View.showCategoryMealErrMsg(errorMsg);
+        }
+
     }
 
 

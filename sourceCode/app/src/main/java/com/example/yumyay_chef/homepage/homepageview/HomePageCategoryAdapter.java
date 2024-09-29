@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -24,6 +25,17 @@ public class HomePageCategoryAdapter extends RecyclerView.Adapter<HomePageCatego
     private static final String TAG = "RecyclerView2";
     private final Context context;
     private List<Category> categoryList;
+    public  static String id = "Beef";
+    HomePageCategoryDetailsAdapter homePageCategoryDetailsAdapter;
+    public interface OnCategoryClickListener {
+        void onCategoryClick(String categoryId);
+    }
+
+    private OnCategoryClickListener listener;
+
+    public void setOnCategoryClickListener(OnCategoryClickListener listener) {
+        this.listener = listener;
+    }
     public HomePageCategoryAdapter(Context context, List<Category> categoryList) {
         this.context = context;
         this.categoryList = categoryList;
@@ -67,6 +79,19 @@ public class HomePageCategoryAdapter extends RecyclerView.Adapter<HomePageCatego
                         .error(R.drawable.ic_launcher_foreground))
                 .into(holder.img);
         holder.txtView.setText(categoryList.get(position).getStrCategory());
+        holder.img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String categoryId = categoryList.get(position).getStrCategory();
+                HomePageCategoryAdapter.id = categoryId;
+
+                // Notify the listener (HomeFragment)
+                if (listener != null) {
+                    listener.onCategoryClick(categoryId);
+                }
+                Toast.makeText(view.getContext(), "Hi from button" + " added to cart", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

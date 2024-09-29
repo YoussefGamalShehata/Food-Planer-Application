@@ -8,4 +8,5 @@ import com.example.yumyay_chef.model.Meal;
 public interface MealRemoteDataSource {
     public void makeNetworkCallRandomMeal(NetworkCallBack<Meal> networkCallBack);
     public void makeNetworkCallCategoryMeal(NetworkCallBack<Category> networkCallBack);
+    public void makeNetworkCallCategoryMealById(String category , NetworkCallBack<Meal> networkCallBack);
 }
