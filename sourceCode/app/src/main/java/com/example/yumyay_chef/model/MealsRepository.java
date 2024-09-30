@@ -13,5 +13,8 @@ public interface MealsRepository {
     public void getRandomMeal(NetworkCallBack<Meal> networkCallBack);
     public void getMealCategories(NetworkCallBack<Category> networkCallBack);
     void getMealById(String id , NetworkCallBack<Meal> callback);
-
+    void getMealByCategory(String id , NetworkCallBack<Meal> callback);
+    void getMealByCountry(String country , NetworkCallBack<Meal> callback);
+    void getMealByIngredient(String ingredient , NetworkCallBack<Meal> callback);
+    void getMealByName(String name , NetworkCallBack<Meal>callback);
 }
