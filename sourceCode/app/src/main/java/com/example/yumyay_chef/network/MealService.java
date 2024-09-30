@@ -25,7 +25,7 @@ public interface MealService {
     Call<AppResponse<Meal>> getMealByCountry(@Query("a") String country);
 
     @GET("lookup.php")
-    Call<AppResponse<Meal>> getMealById(@Query("c") String id);
+    Call<AppResponse<Meal>> getMealById(@Query("i") String id);
 
     @GET("search.php")
     Call<AppResponse<Meal>> getFoodByName(@Query("s") String mealName);

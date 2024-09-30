@@ -64,6 +64,7 @@ public class HomePageFragment extends Fragment implements HomePageFragmentView,H
         recyclerView2.setLayoutManager(linearLayout2);
         recyclerView2.setAdapter(homePageCategoryAdapter);
 
+        homePageCategoryAdapter.setOnCategoryClickListener(this);
         recyclerView3.setHasFixedSize(true);
         linearLayout3 = new LinearLayoutManager(getActivity());
         homePageCategoryDetailsAdapter = new HomePageCategoryDetailsAdapter(getActivity(),new ArrayList<>());

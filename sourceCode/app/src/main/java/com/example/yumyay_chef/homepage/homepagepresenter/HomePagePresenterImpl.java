@@ -32,7 +32,7 @@ public class HomePagePresenterImpl implements HomePagePresenter{
 
     @Override
     public void getMealsByCategoryHP(String id) {
-        _repo.getMealById(id,new CategoryFoodCallback());
+        _repo.getMealByCategory(id,new CategoryFoodCallback());
     }
 
     private class RandomMealCallback implements NetworkCallBack<Meal> {
