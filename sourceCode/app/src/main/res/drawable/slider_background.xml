@@ -1,0 +1,6 @@
+<!-- res/drawable/slider_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="20dp"/>
+    <solid android:color="#F1F8E8"/> <!-- Track color -->
+    <padding android:left="16dp" android:right="16dp"/>
+</shape>

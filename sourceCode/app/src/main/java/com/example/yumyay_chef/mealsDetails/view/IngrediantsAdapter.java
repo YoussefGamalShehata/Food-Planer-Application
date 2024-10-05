@@ -13,7 +13,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.example.yumyay_chef.R;
 import com.example.yumyay_chef.model.Ingrediant;
 
@@ -47,10 +50,10 @@ public class IngrediantsAdapter extends RecyclerView.Adapter<IngrediantsAdapter.
         public ViewHolder(@NonNull View v) {
             super(v);
             layout = v;
-            img = v.findViewById(R.id.imgbtn);
-            txtView = v.findViewById(R.id.textView);
-            txtView10=v.findViewById(R.id.textView10);
-            constraintLayout = v.findViewById(R.id.ingredientRow);
+            img = v.findViewById(R.id.ingredient_icon);
+            txtView = v.findViewById(R.id.ingredient_name);
+            txtView10=v.findViewById(R.id.ingredient_quantity);
+
         }
     }
 
@@ -66,11 +69,19 @@ public class IngrediantsAdapter extends RecyclerView.Adapter<IngrediantsAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull IngrediantsAdapter.ViewHolder holder, int position) {
-        Glide.with(context).load(values.get(position).getIngredientThumb())
-                .apply(new RequestOptions().override(200, 200)
-                        .placeholder(R.drawable.ic_launcher_background)
-                        .error(R.drawable.ic_launcher_foreground))
-                .into(holder.img);
+        Glide.with(context)
+                .load(values.get(position).getIngredientThumb())
+                .apply(new RequestOptions()
+                        .placeholder(R.drawable.loading) // Placeholder image while loading
+                        .error(R.drawable.ic_launcher_foreground) // Error image if loading fails
+                        .centerCrop() // Use centerCrop to fill the ImageView while maintaining aspect ratio
+                        .diskCacheStrategy(DiskCacheStrategy.ALL) // Cache all versions of the image
+                        .priority(Priority.HIGH) // Set a high priority for loading the image
+                        .timeout(10000) // Set a timeout for image loading (10 seconds)
+                        .dontAnimate() // Disable default animations for smoother performance
+                )
+                .into(holder.img); // Make sure you're loading into the correct ImageView
+
         holder.txtView.setText(values.get(position).getIngredientName());
         holder.txtView10.setText(values.get(position).getIngredientMeasure());
     }

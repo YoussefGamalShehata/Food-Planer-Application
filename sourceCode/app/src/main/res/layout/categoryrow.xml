@@ -27,17 +27,17 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:background="#173B45"
+            android:background="#F1F8E8"
             app:srcCompat="@drawable/logo" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FF8225"
+            android:background="#55AD9B"
             android:padding="8dp"
             android:text="Halawet El Mouled"
-            android:textColor="@color/white"
+            android:textColor="#F1F8E8"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center" />

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:elevation="4dp"
-    android:background="@android:color/white"
+    android:background="#55AD9B"
     app:cardCornerRadius="12dp"
     app:cardUseCompatPadding="true">
 
@@ -15,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:background="#F1F8E8"
         android:orientation="vertical"
         android:padding="8dp">
 
@@ -24,7 +25,7 @@
             android:layout_height="60dp"
             android:contentDescription="Country Flag"
             android:scaleType="fitCenter"
-            android:background="@drawable/image_border" />
+            android:background="#F1F8E8" />
 
         <TextView
             android:id="@+id/countryNameTextView"
@@ -33,7 +34,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Country Name"
-            android:textColor="@android:color/black"
+            android:textColor="#55AD9B"
             android:textSize="14sp"
             android:textStyle="bold" />
 

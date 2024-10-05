@@ -92,7 +92,6 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderAdapter.ViewHo
 
         private ImageView imageView;
         private TextView txtTitle;
-        private Button btnRemoveFromFav;
         private View layout;
 
         public ViewHolder(@NonNull View itemView) {
@@ -100,7 +99,7 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderAdapter.ViewHo
             layout=itemView;
             txtTitle=itemView.findViewById(R.id.textView);
             imageView=itemView.findViewById(R.id.imgbtn);
-            btnRemoveFromFav=itemView.findViewById(R.id.btnRemove);
+
         }
     }
 }

@@ -1,47 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:layout_margin="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    android:background="?android:attr/selectableItemBackground">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="8dp"
-        tools:ignore="MissingConstraints">
+        android:padding="16dp"
+        android:background="#F1F8E8">
 
+        <!-- Title (Moved Above the Image) -->
+        <TextView
+            android:id="@+id/textDes"
+            android:layout_width="296dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="8dp"
+            android:text="@string/dailyinspriation"
+            android:textColor="#55AD9B"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Burger Image -->
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="363dp"
+            android:layout_height="271dp"
+            android:layout_below="@id/textDes"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop" />
+
+        <!-- Price -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="154dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img"
+            android:paddingTop="4dp"
+            android:text="$8.99"
+            android:textColor="#55AD9B"
+            android:textSize="16sp" />
+
+        <!-- Rating -->
         <LinearLayout
+            android:id="@+id/rating_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView"
+            android:orientation="horizontal"
+            android:paddingTop="4dp"/>
+
+        <!-- Add to Cart Button -->
+        <Button
+            android:id="@+id/button_add_to_cart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_below="@id/rating_layout"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@android:color/white"
+            android:text="Add to Cart"
+            android:textColor="@android:color/black"
+            android:padding="8dp" />
 
-            <ImageView
-                android:id="@+id/img"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/logo" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#7A1D9D"
-                android:padding="8dp"
-                android:text="Beef"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:gravity="center" />
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -4,7 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8EDED"
+    android:background="#F1F8E8"
     tools:context=".AppNavigationActivity">
 
 
@@ -17,7 +17,7 @@
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         android:background="@drawable/rounded_navigation_background"
-        app:backgroundTint="#173B45"
+        app:backgroundTint="#55AD9B"
         app:itemBackground="@android:color/transparent"
         app:itemIconTint="@color/selector_color_tint"
         app:itemTextColor="@color/selector_color_tint"
@@ -31,7 +31,7 @@
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#F8EDED"
+        android:background="#F1F8E8"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

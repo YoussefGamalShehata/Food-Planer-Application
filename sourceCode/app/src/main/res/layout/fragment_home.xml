@@ -13,16 +13,6 @@
         android:padding="16dp">
 
         <!-- Daily Inspiration Meal Section -->
-        <TextView
-            android:id="@+id/textViewDailyInspiration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_corners"
-            android:text="Daily Inspiration Meal"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
 
         <FrameLayout
             android:layout_width="match_parent"

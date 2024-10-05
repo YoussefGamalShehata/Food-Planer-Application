@@ -25,4 +25,9 @@
     <string name="buttonincardplan">Add To Plan</string>
     <string name="addtofavnew">Add To Fav</string>
     <string name="gotofav">Go To Favorites</string>
+    <string name="areyouhungry">ARE YOU HUNGREY</string>
+    <string name="areyou">ARE YOU\nHUNGREY</string>
+    <string name="are">"  A R E Y O U\n H U N G R E Y"</string>
+    <string name="dailyinspriation">Daily Inspiration Meal</string>
+
 </resources>

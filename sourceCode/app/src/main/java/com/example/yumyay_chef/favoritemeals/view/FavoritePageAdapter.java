@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.yumyay_chef.AppNavigationActivity;
@@ -42,7 +44,7 @@ public class FavoritePageAdapter extends RecyclerView.Adapter<FavoritePageAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView img;
         public TextView titleTxtView;
-        public Button removeBtn;
+        public ImageButton imageButton2;
         public ConstraintLayout constraintLayout;
         public View layout;
 
@@ -52,7 +54,7 @@ public class FavoritePageAdapter extends RecyclerView.Adapter<FavoritePageAdapte
             layout = v;
             img = v.findViewById(R.id.img);
             titleTxtView = v.findViewById(R.id.textView);
-            removeBtn = v.findViewById(R.id.btnRemove);
+            imageButton2 = v.findViewById(R.id.imageButton2);
             constraintLayout = v.findViewById(R.id.main);
         }
     }
@@ -86,14 +88,12 @@ public class FavoritePageAdapter extends RecyclerView.Adapter<FavoritePageAdapte
             }
         });
         holder.titleTxtView.setText(meal.getMealName());
-
-        holder.removeBtn.setOnClickListener(new View.OnClickListener() {
+        holder.imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 listener.onFavRemoveMealClick(meal);
             }
         });
-
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

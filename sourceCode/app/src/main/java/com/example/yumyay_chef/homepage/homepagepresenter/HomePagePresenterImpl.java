@@ -51,6 +51,16 @@ public class HomePagePresenterImpl implements HomePagePresenter{
         _repo.getMealById(id,new MealByIdCallback());
     }
 
+    @Override
+    public void addToFav(Meal meal) {
+        _repo.insertMeal(meal);
+    }
+
+    @Override
+    public void removeFromFav(Meal meal) {
+        _repo.deleteMeal(meal);
+    }
+
     private class MealByIdCallback implements NetworkCallBack<Meal> {
         @Override
         public void onSuccessResult(List<Meal> pojo) {

@@ -1,10 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".mealsDetails.view.MealContentFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,83 +19,120 @@
         <!-- Meal Image -->
         <ImageView
             android:id="@+id/mealImg"
-            android:layout_width="151dp"
-            android:layout_height="154dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="0dp"
+            android:layout_height="329dp"
+            android:layout_margin="16dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!-- Meal Name Label -->
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/mealname"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/mealImg"
-            app:layout_constraintTop_toTopOf="@+id/mealImg" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Meal Name -->
         <TextView
             android:id="@+id/txtName"
-            android:layout_width="206dp"
-            android:layout_height="59dp"
-            android:layout_marginBottom="36dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
             android:text="Tamiya"
-            android:textColor="#F8F3F3"
-            android:textSize="20sp"
+            android:textColor="#55AD9B"
+            android:textSize="32sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/mealImg"
-            app:layout_constraintStart_toStartOf="@+id/textView7" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mealImg" />
+
+        <!-- Add to Favorite Button -->
+
+        <!-- Add to Plan Button -->
+
+        <!-- Favorite ImageButton -->
+        <Button
+            android:id="@+id/btnAddFav"
+            android:layout_width="183dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="#FF7000"
+            android:text="@string/addfav"
+            android:textColor="#F1F8E8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtName" />
+
+        <Button
+            android:id="@+id/btnAddPlan"
+            android:layout_width="174dp"
+            android:layout_height="39dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#FF7000"
+            android:text="@string/addtoplan"
+            android:textColor="#F1F8E8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnAddFav" />
+
+        <ImageButton
+            android:id="@+id/imgBtnFav"
+            android:layout_width="67dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="8dp"
+            android:background="@null"
+            android:src="@drawable/hearto"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnAddFav" />
+
+        <!-- Plan ImageButton -->
+        <ImageButton
+            android:id="@+id/imgBtnPlan"
+            android:layout_width="77dp"
+            android:layout_height="59dp"
+            android:background="@null"
+            android:src="@drawable/calendar2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imgBtnFav" />
 
         <!-- Instruction Label -->
+
+        <!-- Instruction Text -->
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="30dp"
             android:text="@string/instruction"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
+            android:textColor="#55AD9B"
+            android:textSize="32sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mealImg" />
+            app:layout_constraintTop_toBottomOf="@+id/imgBtnFav" />
 
-        <!-- Instruction Text -->
         <TextView
             android:id="@+id/txtInstruction"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_margin="16dp"
             android:background="@drawable/border_background"
             android:padding="12dp"
             android:text="Meal Instructions"
+            android:textColor="#000000"
             android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintTop_toBottomOf="@id/textView6" />
 
-        <!-- RecyclerView for Ingredients (moved up before video section) -->
+        <!-- RecyclerView for Ingredients -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rec2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@id/txtInstruction"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtInstruction" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
-
-        <!-- Meal Guide Video Label (Moved under RecyclerView) -->
+        <!-- Meal Guide Video Label -->
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
@@ -98,13 +140,13 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/viedo"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
+            android:textColor="#55AD9B"
+            android:textSize="32sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rec2" />
+            app:layout_constraintTop_toBottomOf="@id/rec2" />
 
-        <!-- Meal Guide Video WebView (After the RecyclerView) -->
+        <!-- Meal Guide Video WebView -->
         <WebView
             android:id="@+id/webViedo"
             android:layout_width="0dp"
@@ -113,74 +155,22 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/rounded_webview_background"
             android:elevation="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView8"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- ProgressBar (Inside Video) -->
+        <!-- ProgressBar for Video Loading -->
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:indeterminate="true"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="@+id/webViedo"
-            app:layout_constraintEnd_toEndOf="@+id/webViedo"
-            app:layout_constraintStart_toStartOf="@+id/webViedo"
-            app:layout_constraintTop_toTopOf="@+id/webViedo" />
-
-        <!-- Fullscreen WebView -->
-
-        <!-- Add to Favorite Button -->
-        <Button
-            android:id="@+id/btnAddFav"
-            android:layout_width="183dp"
-            android:layout_height="38dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="14dp"
-            android:layout_marginBottom="41dp"
-            android:text="@string/addfav"
-            app:layout_constraintBottom_toTopOf="@+id/txtInstruction"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtName" />
-
-        <Button
-            android:id="@+id/btnAddPlan"
-            android:layout_width="183dp"
-            android:layout_height="38dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="52dp"
-            android:layout_marginEnd="12dp"
-            android:text="@string/addtoplan"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/txtName" />
-
-        <ImageButton
-            android:id="@+id/imgBtnFav"
-            android:layout_width="67dp"
-            android:layout_height="63dp"
-            android:layout_marginEnd="12dp"
-            android:background="@null"
-            android:src="@drawable/hearto"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.975"
-            app:layout_constraintStart_toEndOf="@+id/mealImg"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="17dp" />
-
-        <ImageButton
-            android:id="@+id/imgBtnPlan"
-            android:layout_width="55dp"
-            android:layout_height="59dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="1dp"
-            android:src="@drawable/calendar2"
-            android:background="@null"
-            app:layout_constraintEnd_toStartOf="@+id/btnAddFav"
-            app:layout_constraintStart_toEndOf="@+id/mealImg"
-            tools:layout_editor_absoluteY="143dp"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintBottom_toBottomOf="@id/webViedo"
+            app:layout_constraintEnd_toEndOf="@id/webViedo"
+            app:layout_constraintStart_toStartOf="@id/webViedo"
+            app:layout_constraintTop_toTopOf="@id/webViedo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</LinearLayout>
+    </ScrollView>

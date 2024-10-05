@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8EDED"
+    android:background="#55AD9B"
     tools:context=".MainActivity">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -20,21 +20,50 @@
         tools:layout_editor_absoluteY="-84dp"
         tools:ignore="MissingConstraints" />
 
+
+    <!-- Slider (SeekBar) -->
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="442dp"
         android:layout_height="167dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="144dp"
         android:fontFamily="sans-serif-smallcaps"
         android:padding="16dp"
-        android:text="@string/yumy"
-        android:textColor="@android:color/holo_orange_light"
+        android:text="@string/are"
+        android:textColor="#F1F8E8"
         android:textColorLink="#000000"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <SeekBar
+        android:id="@+id/slider"
+        android:layout_width="304dp"
+        android:layout_height="50dp"
+        android:background="@drawable/slider_background"
+        android:max="100"
+        android:progress="0"
+        android:thumb="@drawable/slider_thumb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <!-- Text inside the SeekBar -->
+    <TextView
+        android:id="@+id/textViewValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GET STARTED"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        app:layout_constraintTop_toTopOf="@+id/slider"
+        app:layout_constraintBottom_toBottomOf="@+id/slider"
+        app:layout_constraintStart_toStartOf="@+id/slider"
+        app:layout_constraintEnd_toEndOf="@+id/slider"
+        android:gravity="center" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -45,6 +74,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

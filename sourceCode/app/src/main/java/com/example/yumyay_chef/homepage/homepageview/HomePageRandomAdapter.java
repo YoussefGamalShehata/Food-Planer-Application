@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -43,6 +45,8 @@ public class HomePageRandomAdapter extends RecyclerView.Adapter<HomePageRandomAd
     public class ViewHolder extends RecyclerView.ViewHolder{
         private ImageView img;
         private TextView txtView;
+        private TextView txtDes;
+        private ImageButton btnFav;
         public ConstraintLayout constraintLayout;
         public View layout;
 
@@ -51,6 +55,7 @@ public class HomePageRandomAdapter extends RecyclerView.Adapter<HomePageRandomAd
             layout = v;
             img = v.findViewById(R.id.img);
             txtView = v.findViewById(R.id.textView);
+         //   btnFav =v.findViewById(R.id.btnAddFavrand);
             constraintLayout = v.findViewById(R.id.main);
         }
     }
@@ -93,6 +98,22 @@ public class HomePageRandomAdapter extends RecyclerView.Adapter<HomePageRandomAd
                         .addToBackStack(null).commit();
             }
         });
+//        holder.btnFav.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view) {
+//                if (FavoritesManager.isMealFavorite(meal)) {
+//                    // Remove from favorites
+//                    FavoritesManager.removeMealFromFavorites(meal);
+//                    holder.btnFav.setImageResource(R.drawable.hearto); // Change icon to outline
+//                    Log.i(TAG, meal.getMealName() + " removed from favorites.");
+//                } else {
+//                    // Add to favorites
+//                    FavoritesManager.addMealToFavorites(meal);
+//                    holder.btnFav.setImageResource(R.drawable.heart_filled); // Change icon to filled
+//                    Log.i(TAG, meal.getMealName() + " added to favorites.");
+//                }
+//            }
+//        });
     }
 
     @Override

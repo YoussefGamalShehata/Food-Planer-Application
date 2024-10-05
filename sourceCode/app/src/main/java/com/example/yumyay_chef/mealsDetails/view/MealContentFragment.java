@@ -111,7 +111,7 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
         ingrediantsAdapter = new IngrediantsAdapter(getActivity(),new ArrayList<>(),this);
         recyclerView.setHasFixedSize(true);
         linearLayout = new LinearLayoutManager(getActivity());
-        linearLayout.setOrientation(RecyclerView.HORIZONTAL);
+        linearLayout.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(linearLayout);
         imgFav = view.findViewById(R.id.imgBtnFav);
         mealImage = view.findViewById(R.id.mealImg);
@@ -168,12 +168,14 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
                     Toast.makeText(getContext(), "Meal Added To Favorites", Toast.LENGTH_SHORT).show();
                     onAddToFavClick(meal);
                     addBtn.setEnabled(false);
+                    imgFav.setImageResource(R.drawable.heart_filled);
                 }
                 else
                 {
                     Toast.makeText(getContext(), meal.getMealName()+" Removed To Favourite", Toast.LENGTH_SHORT).show();
                     onRemoveFavClick(meal);
                     addBtn.setEnabled(true);
+                    imgFav.setImageResource(R.drawable.hearto);
                 }
             }
         });
@@ -183,12 +185,14 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
                 if(!meal.isFav()) {
                     Toast.makeText(getContext(), "Meal Added To Favorites", Toast.LENGTH_SHORT).show();
                     onAddToFavClick(meal);
+                    addBtn.setEnabled(false);
                     imgFav.setImageResource(R.drawable.heart_filled);
                 }
                 else
                 {
                     Toast.makeText(getContext(), meal.getMealName()+" Removed To Favourite", Toast.LENGTH_SHORT).show();
                     onRemoveFavClick(meal);
+                    addBtn.setEnabled(true);
                     imgFav.setImageResource(R.drawable.hearto);
                 }
             }

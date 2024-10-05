@@ -48,7 +48,7 @@ public class CalenderFragment extends Fragment implements CalenderView,OnCalende
         View view = inflater.inflate(R.layout.fragment_calender, container, false);
         DatePicker datePicker = view.findViewById(R.id.datePicker2);
         Calendar calendar = Calendar.getInstance();
-
+        datePicker.setMinDate(calendar.getTimeInMillis());
         recyclerViewFav=view.findViewById(R.id.recPlaned);
         calendarPresenter =new CalenderPresenterImpl( MealsRepositoryImpl.getInstance(MealRemoteDataSourceImpl.getInstance(),
                 MealsLocalDataSourceImpl.getInstance(getContext())));
