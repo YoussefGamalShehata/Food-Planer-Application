@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MealContentFragment">
+    tools:context=".mealsDetails.view.MealContentFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="WebViewLayout">
 
+        <!-- Meal Image -->
         <ImageView
             android:id="@+id/mealImg"
             android:layout_width="151dp"
@@ -20,6 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Meal Name Label -->
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
@@ -33,6 +36,7 @@
             app:layout_constraintStart_toEndOf="@+id/mealImg"
             app:layout_constraintTop_toTopOf="@+id/mealImg" />
 
+        <!-- Meal Name -->
         <TextView
             android:id="@+id/txtName"
             android:layout_width="206dp"
@@ -45,6 +49,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/mealImg"
             app:layout_constraintStart_toStartOf="@+id/textView7" />
 
+        <!-- Instruction Label -->
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
@@ -58,6 +63,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mealImg" />
 
+        <!-- Instruction Text -->
         <TextView
             android:id="@+id/txtInstruction"
             android:layout_width="0dp"
@@ -73,6 +79,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
+        <!-- RecyclerView for Ingredients (moved up before video section) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rec2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtInstruction" />
+
+
+        <!-- Meal Guide Video Label (Moved under RecyclerView) -->
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
@@ -84,51 +102,85 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtInstruction" />
+            app:layout_constraintTop_toBottomOf="@+id/rec2" />
 
+        <!-- Meal Guide Video WebView (After the RecyclerView) -->
         <WebView
             android:id="@+id/webViedo"
-            android:layout_width="395dp"
+            android:layout_width="0dp"
             android:layout_height="227dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/rounded_webview_background"
             android:elevation="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
-        <FrameLayout
-            android:id="@+id/fullscreen_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            android:background="@color/black"> <!-- Closing angle bracket added here -->
 
-            <WebView
-                android:id="@+id/fullscreen_webview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <Button
-                android:id="@+id/exit_fullscreen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Exit Fullscreen"
-                android:layout_gravity="center" />
-        </FrameLayout>
+        <!-- ProgressBar (Inside Video) -->
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
             android:indeterminate="true"
-            app:layout_constraintTop_toTopOf="@+id/webViedo"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/webViedo"
+            app:layout_constraintEnd_toEndOf="@+id/webViedo"
             app:layout_constraintStart_toStartOf="@+id/webViedo"
-            app:layout_constraintEnd_toEndOf="@+id/webViedo"/>
+            app:layout_constraintTop_toTopOf="@+id/webViedo" />
 
+        <!-- Fullscreen WebView -->
+
+        <!-- Add to Favorite Button -->
+        <Button
+            android:id="@+id/btnAddFav"
+            android:layout_width="183dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="41dp"
+            android:text="@string/addfav"
+            app:layout_constraintBottom_toTopOf="@+id/txtInstruction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+        <Button
+            android:id="@+id/btnAddPlan"
+            android:layout_width="183dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/addtoplan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+        <ImageButton
+            android:id="@+id/imgBtnFav"
+            android:layout_width="67dp"
+            android:layout_height="63dp"
+            android:layout_marginEnd="12dp"
+            android:background="@null"
+            android:src="@drawable/hearto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.975"
+            app:layout_constraintStart_toEndOf="@+id/mealImg"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="17dp" />
+
+        <ImageButton
+            android:id="@+id/imgBtnPlan"
+            android:layout_width="55dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="1dp"
+            android:src="@drawable/calendar2"
+            android:background="@null"
+            app:layout_constraintEnd_toStartOf="@+id/btnAddFav"
+            app:layout_constraintStart_toEndOf="@+id/mealImg"
+            tools:layout_editor_absoluteY="143dp"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

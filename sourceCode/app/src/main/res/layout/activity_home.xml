@@ -4,8 +4,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#021c1b"
-    tools:context=".homepage.homepageview.HomePagePageActivity">
+    android:background="#F8EDED"
+    tools:context=".AppNavigationActivity">
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -17,7 +17,7 @@
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         android:background="@drawable/rounded_navigation_background"
-        app:backgroundTint="#374237"
+        app:backgroundTint="#173B45"
         app:itemBackground="@android:color/transparent"
         app:itemIconTint="@color/selector_color_tint"
         app:itemTextColor="@color/selector_color_tint"
@@ -31,7 +31,7 @@
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#021c1b"
+        android:background="#F8EDED"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
