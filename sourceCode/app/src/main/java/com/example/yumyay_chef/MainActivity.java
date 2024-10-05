@@ -9,23 +9,21 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.yumyay_chef.homepage.homepageview.HomePageActivity;
-
 public class MainActivity extends AppCompatActivity {
-    Animation animation;
-    TextView txtView;
+    Animation myAnimation;
+    TextView applicationName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        animation= AnimationUtils.loadAnimation(this,R.anim.myanim);
-        txtView=findViewById(R.id.textView3);
-        txtView.startAnimation(animation);
-        txtView.postOnAnimationDelayed(new Runnable() {
+        myAnimation= AnimationUtils.loadAnimation(this,R.anim.startanimation);
+        applicationName=findViewById(R.id.textView3);
+        applicationName.startAnimation(myAnimation);
+        applicationName.postOnAnimationDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent outIntent = new Intent(MainActivity.this, HomePageActivity.class);
+                Intent outIntent = new Intent(MainActivity.this, AppNavigationActivity.class);
                 startActivity(outIntent);
                 finish();
             }

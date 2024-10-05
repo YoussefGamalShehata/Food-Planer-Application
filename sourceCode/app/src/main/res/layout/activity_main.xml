@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#021c1b"
+    android:background="#F8EDED"
     tools:context=".MainActivity">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -17,7 +17,8 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/myfile"
-        tools:layout_editor_absoluteY="-84dp" />
+        tools:layout_editor_absoluteY="-84dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView3"
