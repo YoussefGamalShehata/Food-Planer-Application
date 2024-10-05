@@ -4,7 +4,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="#F8EDED"
+=======
+    android:background="#021c1b"
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
     tools:context=".AppNavigationActivity">
 
 

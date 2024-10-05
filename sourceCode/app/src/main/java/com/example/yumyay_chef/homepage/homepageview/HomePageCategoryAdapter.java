@@ -14,7 +14,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+<<<<<<< HEAD
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 import com.bumptech.glide.request.RequestOptions;
 import com.example.yumyay_chef.R;
 import com.example.yumyay_chef.model.Category;
@@ -66,7 +69,11 @@ public class HomePageCategoryAdapter extends RecyclerView.Adapter<HomePageCatego
     @Override
     public HomePageCategoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup recyclerView, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(recyclerView.getContext());
+<<<<<<< HEAD
         View v = inflater.inflate(R.layout.categoryrow, recyclerView, false);
+=======
+        View v = inflater.inflate(R.layout.test2, recyclerView, false);
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         HomePageCategoryAdapter.ViewHolder vh = new HomePageCategoryAdapter.ViewHolder(v);
         Log.i(TAG, "===== onCreateViewHolder =====");
         return vh;
@@ -74,6 +81,7 @@ public class HomePageCategoryAdapter extends RecyclerView.Adapter<HomePageCatego
 
     @Override
     public void onBindViewHolder(@NonNull HomePageCategoryAdapter.ViewHolder holder, int position) {
+<<<<<<< HEAD
         Glide.with(context)
                 .load(categoryList.get(position).getStrCategoryThumb())
                 .apply(new RequestOptions()
@@ -85,6 +93,13 @@ public class HomePageCategoryAdapter extends RecyclerView.Adapter<HomePageCatego
                 .into(holder.img);
 
 
+=======
+        Glide.with(context).load(categoryList.get(position).getStrCategoryThumb())
+                .apply(new RequestOptions().override(200,200)
+                        .placeholder(R.drawable.ic_launcher_background)
+                        .error(R.drawable.ic_launcher_foreground))
+                .into(holder.img);
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         holder.txtView.setText(categoryList.get(position).getStrCategory());
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +111,11 @@ public class HomePageCategoryAdapter extends RecyclerView.Adapter<HomePageCatego
                 if (listener != null) {
                     listener.onCategoryClick(categoryId);
                 }
+<<<<<<< HEAD
                 Toast.makeText(view.getContext(), categoryList.get(position).getStrCategory() + " Available", Toast.LENGTH_SHORT).show();
+=======
+                Toast.makeText(view.getContext(), "Hi from button" + " added to cart", Toast.LENGTH_SHORT).show();
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
             }
         });
     }

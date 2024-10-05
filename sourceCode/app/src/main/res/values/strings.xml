@@ -20,9 +20,12 @@
     <string name="favorite">Favorites</string>
     <string name="removefromefav">Remove From Favorite</string>
     <string name="addfav">Add To Favorites</string>
+<<<<<<< HEAD
     <string name="addtoplan">Add To Plan</string>
     <string name="addToPlan">add To Plan</string>
     <string name="buttonincardplan">Add To Plan</string>
     <string name="addtofavnew">Add To Fav</string>
     <string name="gotofav">Go To Favorites</string>
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 </resources>

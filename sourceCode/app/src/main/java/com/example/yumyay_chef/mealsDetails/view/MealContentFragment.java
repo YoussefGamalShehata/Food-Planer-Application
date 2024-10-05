@@ -2,11 +2,17 @@ package com.example.yumyay_chef.mealsDetails.view;
 
 
 import android.annotation.SuppressLint;
+<<<<<<< HEAD
 import android.app.AlertDialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+=======
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,19 +20,26 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+<<<<<<< HEAD
 import android.widget.ImageButton;
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+<<<<<<< HEAD
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.yumyay_chef.R;
 import com.example.yumyay_chef.db.MealsLocalDataSourceImpl;
+<<<<<<< HEAD
 import com.example.yumyay_chef.model.Converter;
 import com.example.yumyay_chef.model.Ingrediant;
 import com.example.yumyay_chef.model.Meal;
@@ -46,12 +59,25 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
 
     private Meal meal;
     private MealPlan mealPlan;
+=======
+import com.example.yumyay_chef.model.Meal;
+import com.example.yumyay_chef.model.MealsRepositoryImpl;
+import com.example.yumyay_chef.network.MealRemoteDataSourceImpl;
+
+public class MealContentFragment extends Fragment {
+
+    private static final String MEAL_KEY = "MEAL_KEY";
+    private static final String YOUTUBE_PREFIX = "https://www.youtube.com/";
+
+    private Meal meal;
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 
     private ImageView mealImage;
     private TextView mealTitle;
     private TextView mealDesc;
     private WebView mealVideo;
     private Button addBtn;
+<<<<<<< HEAD
     private Button addPlan;
     private ImageButton imgFav;
     private ImageButton imgPlan;
@@ -71,12 +97,24 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
             meal = (Meal) getArguments().getSerializable(MEAL_KEY);
             _repo = MealsRepositoryImpl.getInstance(MealRemoteDataSourceImpl.getInstance(), MealsLocalDataSourceImpl.getInstance(getContext()));
             onCheckClick(meal);
+=======
+
+    private MealsRepositoryImpl _repo;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            meal = (Meal) getArguments().getSerializable(MEAL_KEY);
+            _repo = MealsRepositoryImpl.getInstance(MealRemoteDataSourceImpl.getInstance(), MealsLocalDataSourceImpl.getInstance(getContext()));
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_meal_content, container, false);
+<<<<<<< HEAD
         initUI(view);
         addPlan = view.findViewById(R.id.btnAddPlan);
         addPlan.setOnClickListener(new View.OnClickListener() {
@@ -114,11 +152,15 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
         linearLayout.setOrientation(RecyclerView.HORIZONTAL);
         recyclerView.setLayoutManager(linearLayout);
         imgFav = view.findViewById(R.id.imgBtnFav);
+=======
+
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         mealImage = view.findViewById(R.id.mealImg);
         mealTitle = view.findViewById(R.id.txtName);
         mealDesc = view.findViewById(R.id.txtInstruction);
         mealVideo = view.findViewById(R.id.webViedo);
         addBtn = view.findViewById(R.id.btnAddFav);
+<<<<<<< HEAD
         addPlan = view.findViewById(R.id.btnAddPlan);
         setupWebView();
         loadImage();
@@ -193,6 +235,13 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
                 }
             }
         });
+=======
+
+        setupWebView();
+        loadImage();
+        setMealDetails();
+
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         return view;
     }
 
@@ -241,9 +290,12 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
         return fragment;
     }
 
+<<<<<<< HEAD
     private void initUI(View view) {
         recyclerView = view.findViewById(R.id.rec2);
     }
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
     private String getYoutubeVideoId(String url) {
         if (TextUtils.isEmpty(url)) return "";
 
@@ -259,6 +311,7 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
     public void addToFavMeals(Meal meal) {
         _repo.insertMeal(meal);
     }
+<<<<<<< HEAD
 
     private List<Ingrediant> getIngList(Meal meal) {
         List<Ingrediant> ingList =  new ArrayList<>();
@@ -314,4 +367,6 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
         meal.setFav(false);
         _repo.deleteMeal(meal);
     }
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 }

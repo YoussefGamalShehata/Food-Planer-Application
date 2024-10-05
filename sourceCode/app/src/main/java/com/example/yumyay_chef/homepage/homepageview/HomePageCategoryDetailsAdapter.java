@@ -20,11 +20,17 @@ public class HomePageCategoryDetailsAdapter extends RecyclerView.Adapter<HomePag
     private static final String TAG = "RecyclerView2";
     private final Context context;
     private List<Meal> allcategoryList;
+<<<<<<< HEAD
     HomePageClickListener listener;
     public HomePageCategoryDetailsAdapter(Context context, List<Meal> categoryList, HomePageClickListener listener) {
         this.context = context;
         this.allcategoryList = categoryList;
         this.listener = listener;
+=======
+    public HomePageCategoryDetailsAdapter(Context context, List<Meal> categoryList) {
+        this.context = context;
+        this.allcategoryList = categoryList;
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
     }
     public void setList(List<Meal> categoryList){
         this.allcategoryList = categoryList;
@@ -46,13 +52,18 @@ public class HomePageCategoryDetailsAdapter extends RecyclerView.Adapter<HomePag
     @Override
     public HomePageCategoryDetailsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup recyclerView, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(recyclerView.getContext());
+<<<<<<< HEAD
         View v = inflater.inflate(R.layout.meal_row_by_category, recyclerView, false);
+=======
+        View v = inflater.inflate(R.layout.test2, recyclerView, false);
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         HomePageCategoryDetailsAdapter.ViewHolder vh = new HomePageCategoryDetailsAdapter.ViewHolder(v);
         Log.i(TAG, "===== onCreateViewHolder =====");
         return vh;
     }
     @Override
     public void onBindViewHolder(@NonNull HomePageCategoryDetailsAdapter.ViewHolder holder, int position) {
+<<<<<<< HEAD
         Meal meal = allcategoryList.get(position);
         Glide.with(context).load(allcategoryList.get(position).getMealThumbnail())
                 .apply(new RequestOptions().override(200,200)
@@ -72,6 +83,14 @@ public class HomePageCategoryDetailsAdapter extends RecyclerView.Adapter<HomePag
                 listener.onMealClick(meal.getMealId());
             }
         });
+=======
+        Glide.with(context).load(allcategoryList.get(position).getMealThumbnail())
+                .apply(new RequestOptions().override(200,200)
+                        .placeholder(R.drawable.ic_launcher_background)
+                        .error(R.drawable.ic_launcher_foreground))
+                .into(holder.img);
+        holder.txtView.setText(allcategoryList.get(position).getMealName());
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
     }
     @Override
     public int getItemCount() {

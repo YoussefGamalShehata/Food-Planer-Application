@@ -11,14 +11,21 @@
         android:id="@+id/cardView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="-2dp"
         android:backgroundTint="#D1AB35"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="12dp"
         app:cardElevation="8dp"
+<<<<<<<< HEAD:sourceCode/app/src/main/res/layout/fav_row.xml
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+========
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.5"
+        tools:layout_editor_absoluteX="32dp">
+>>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a:sourceCode/app/src/main/res/layout/test2.xml
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,6 +55,7 @@
 
     </androidx.cardview.widget.CardView>
 
+<<<<<<<< HEAD:sourceCode/app/src/main/res/layout/fav_row.xml
     <Button
         android:id="@+id/btnRemove"
         android:layout_width="192dp"
@@ -57,5 +65,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardView3" />
+========
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="99dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="132dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo"
+        tools:layout_editor_absoluteY="16dp" />
+>>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a:sourceCode/app/src/main/res/layout/test2.xml
 
 </androidx.constraintlayout.widget.ConstraintLayout>

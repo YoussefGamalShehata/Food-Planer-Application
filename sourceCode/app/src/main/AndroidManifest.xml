@@ -16,8 +16,12 @@
         tools:targetApi="31">
         <activity
             android:name=".AppNavigationActivity"
+<<<<<<< HEAD
             android:exported="false"
             android:screenOrientation="portrait"/>
+=======
+            android:exported="false" />
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         <activity
             android:name=".MainActivity"
             android:exported="true"

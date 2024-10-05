@@ -79,7 +79,11 @@ public class MealRemoteDataSourceImpl implements MealRemoteDataSource{
     public void makeNetworkCallCategoryMealById(String category, NetworkCallBack<Meal> networkCallBack) {
         mealService.getMealByIdCategory(category).enqueue(new Callback<AppResponse<Meal>>() {
             @Override
+<<<<<<< HEAD
             public void onResponse(@NonNull Call<AppResponse<Meal>> call, @NonNull Response<AppResponse<Meal>> response) {
+=======
+            public void onResponse(Call<AppResponse<Meal>> call, Response<AppResponse<Meal>> response) {
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
                 if (response.isSuccessful() && response.body() != null) {
                     networkCallBack.onSuccessResult(response.body().meals);
                 } else {
@@ -88,7 +92,11 @@ public class MealRemoteDataSourceImpl implements MealRemoteDataSource{
             }
 
             @Override
+<<<<<<< HEAD
             public void onFailure(@NonNull Call<AppResponse<Meal>> call, @NonNull Throwable throwable) {
+=======
+            public void onFailure(Call<AppResponse<Meal>> call, Throwable throwable) {
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
                 networkCallBack.onFailureResult(throwable.getMessage());
             }
         });
@@ -108,7 +116,11 @@ public class MealRemoteDataSourceImpl implements MealRemoteDataSource{
             }
 
             @Override
+<<<<<<< HEAD
             public void onFailure(@NonNull Call<AppResponse<Meal>> call, @NonNull Throwable throwable) {
+=======
+            public void onFailure(Call<AppResponse<Meal>> call, Throwable throwable) {
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
                 networkCallBack.onFailureResult(throwable.getMessage());
             }
         });
@@ -116,7 +128,11 @@ public class MealRemoteDataSourceImpl implements MealRemoteDataSource{
 
     @Override
     public void makeNetworkCallMealByName(String name, NetworkCallBack<Meal> networkCallBack) {
+<<<<<<< HEAD
         mealService.getMealByName(name).enqueue(new Callback<AppResponse<Meal>>() {
+=======
+        mealService.getFoodByName(name).enqueue(new Callback<AppResponse<Meal>>() {
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 
             @Override
             public void onResponse(@NonNull Call<AppResponse<Meal>> call, @NonNull retrofit2.Response<AppResponse<Meal>> response) {
@@ -128,7 +144,11 @@ public class MealRemoteDataSourceImpl implements MealRemoteDataSource{
             }
 
             @Override
+<<<<<<< HEAD
             public void onFailure(@NonNull Call<AppResponse<Meal>> call, @NonNull Throwable throwable) {
+=======
+            public void onFailure(Call<AppResponse<Meal>> call, Throwable throwable) {
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
                 networkCallBack.onFailureResult(throwable.getMessage());
             }
         });
@@ -148,14 +168,22 @@ public class MealRemoteDataSourceImpl implements MealRemoteDataSource{
             }
 
             @Override
+<<<<<<< HEAD
             public void onFailure(@NonNull Call<AppResponse<Meal>> call, @NonNull Throwable throwable) {
+=======
+            public void onFailure(Call<AppResponse<Meal>> call, Throwable throwable) {
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
                 networkCallBack.onFailureResult(throwable.getMessage());
             }
         });
     }
 
     @Override
+<<<<<<< HEAD
     public void makeNetworkCallMealById(String id, NetworkCallBack<Meal> networkCallBack) {
+=======
+    public void makeNetworkCallFoodById(String id, NetworkCallBack<Meal> networkCallBack) {
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         mealService.getMealById(id).enqueue(new Callback<AppResponse<Meal>>() {
 
             @Override
@@ -166,6 +194,7 @@ public class MealRemoteDataSourceImpl implements MealRemoteDataSource{
                     networkCallBack.onFailureResult("Failed to fetch random meal");
                 }
             }
+<<<<<<< HEAD
             @Override
             public void onFailure(@NonNull Call<AppResponse<Meal>> call, @NonNull Throwable throwable) {
                 networkCallBack.onFailureResult(throwable.getMessage());
@@ -188,6 +217,11 @@ public class MealRemoteDataSourceImpl implements MealRemoteDataSource{
 
             @Override
             public void onFailure(@NonNull Call<AppResponse<Country>> call, @NonNull Throwable throwable) {
+=======
+
+            @Override
+            public void onFailure(Call<AppResponse<Meal>> call, Throwable throwable) {
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
                 networkCallBack.onFailureResult(throwable.getMessage());
             }
         });

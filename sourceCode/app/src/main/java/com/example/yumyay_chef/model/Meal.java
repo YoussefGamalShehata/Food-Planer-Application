@@ -152,6 +152,7 @@ public class Meal implements Serializable {
 
     private boolean isFav;
 
+<<<<<<< HEAD
     public String getMeasure11() {
         return measure11;
     }
@@ -159,6 +160,48 @@ public class Meal implements Serializable {
     public void setMeasure11(String measure11) {
         this.measure11 = measure11;
     }
+=======
+    public Meal(@NonNull String mealId, String mealName, String drinkAlternate, String category, String area, String instructions, String mealThumbnail, String tags, String youtubeUrl, String ingredient1, String ingredient2, String ingredient3, String ingredient4, String ingredient5, String ingredient6, String ingredient7, String ingredient8, String ingredient9, String ingredient10, String measure1, String measure2, String measure3, String measure4, String measure5, String measure6, String measure7, String measure8, String measure9, String measure10, String source, String imageSource, String creativeCommonsConfirmed, String dateModified, boolean isFav) {
+        this.mealId = mealId;
+        this.mealName = mealName;
+        this.drinkAlternate = drinkAlternate;
+        this.category = category;
+        this.area = area;
+        this.instructions = instructions;
+        this.mealThumbnail = mealThumbnail;
+        this.tags = tags;
+        this.youtubeUrl = youtubeUrl;
+        this.ingredient1 = ingredient1;
+        this.ingredient2 = ingredient2;
+        this.ingredient3 = ingredient3;
+        this.ingredient4 = ingredient4;
+        this.ingredient5 = ingredient5;
+        this.ingredient6 = ingredient6;
+        this.ingredient7 = ingredient7;
+        this.ingredient8 = ingredient8;
+        this.ingredient9 = ingredient9;
+        this.ingredient10 = ingredient10;
+        this.measure1 = measure1;
+        this.measure2 = measure2;
+        this.measure3 = measure3;
+        this.measure4 = measure4;
+        this.measure5 = measure5;
+        this.measure6 = measure6;
+        this.measure7 = measure7;
+        this.measure8 = measure8;
+        this.measure9 = measure9;
+        this.measure10 = measure10;
+        this.source = source;
+        this.imageSource = imageSource;
+        this.creativeCommonsConfirmed = creativeCommonsConfirmed;
+        this.dateModified = dateModified;
+        this.isFav = false;
+    }
+
+    /* public List<Ingredient> getIngredients() {
+        List<Ingredient> ingredients = new ArrayList<>();
+        Field[] fields = this.getClass().getDeclaredFields();
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 
     public String getIngredient11() {
         return ingredient11;

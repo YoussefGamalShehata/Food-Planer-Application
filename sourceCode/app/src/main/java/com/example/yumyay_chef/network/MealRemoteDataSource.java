@@ -12,7 +12,11 @@ public interface MealRemoteDataSource {
     public void makeNetworkCallMealByName(String name , NetworkCallBack<Meal> networkCallBack);
 
     public void makeNetworkCallIngradiant(String ingrediant , NetworkCallBack<Meal> networkCallBack);
+<<<<<<< HEAD
     public void makeNetworkCallMealById(String id , NetworkCallBack<Meal> networkCallBack);
 
     public void makeNetworkCallFlagCountries(NetworkCallBack<Country> networkCallBack);
+=======
+    public void makeNetworkCallFoodById(String id , NetworkCallBack<Meal> networkCallBack);
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 }

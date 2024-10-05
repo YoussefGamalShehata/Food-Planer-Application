@@ -36,6 +36,7 @@ public class HomePagePresenterImpl implements HomePagePresenter{
         _repo.getMealByCategory(id,new CategoryFoodCallback());
     }
 
+<<<<<<< HEAD
     @Override
     public void getCountryHP() {
         _repo.getFlagCountries(new CountryCallback());
@@ -62,6 +63,8 @@ public class HomePagePresenterImpl implements HomePagePresenter{
         }
     }
 
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
     private class RandomMealCallback implements NetworkCallBack<Meal> {
         @Override
         public void onSuccessResult(List<Meal> pojo) {
@@ -86,14 +89,27 @@ public class HomePagePresenterImpl implements HomePagePresenter{
         }
     }
     private class CategoryFoodCallback implements NetworkCallBack<Meal> {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         @Override
         public void onSuccessResult(List<Meal> meal) {
             _View.showCategoryMeal(meal);
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         @Override
         public void onFailureResult(String errorMsg) {
             _View.showCategoryMealErrMsg(errorMsg);
         }
+<<<<<<< HEAD
+=======
+
+    }
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 
     }
     private class CountryCallback implements NetworkCallBack<Country> {

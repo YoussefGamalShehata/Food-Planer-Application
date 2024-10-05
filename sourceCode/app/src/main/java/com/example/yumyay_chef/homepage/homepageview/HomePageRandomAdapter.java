@@ -16,7 +16,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+<<<<<<< HEAD
 import com.bumptech.glide.request.target.Target;
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 import com.example.yumyay_chef.AppNavigationActivity;
 import com.example.yumyay_chef.mealsDetails.view.MealContentFragment;
 import com.example.yumyay_chef.R;
@@ -68,6 +71,7 @@ public class HomePageRandomAdapter extends RecyclerView.Adapter<HomePageRandomAd
     @Override
     public void onBindViewHolder(@NonNull HomePageRandomAdapter.ViewHolder holder, int position) {
         Meal meal = values.get(position);
+<<<<<<< HEAD
         Glide.with(context)
                 .load(values.get(position).getMealThumbnail())
                 .apply(new RequestOptions()
@@ -81,6 +85,12 @@ public class HomePageRandomAdapter extends RecyclerView.Adapter<HomePageRandomAd
                         .override(Target.SIZE_ORIGINAL) // Use original size to avoid scaling issues
                         .fitCenter() // Scale down the image to fit the view, maintaining aspect ratio
                 )
+=======
+        Glide.with(context).load(values.get(position).getMealThumbnail())
+                .apply(new RequestOptions().override(200,200)
+                        .placeholder(R.drawable.ic_launcher_background)
+                        .error(R.drawable.ic_launcher_foreground))
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
                 .into(holder.img);
         holder.txtView.setText(values.get(position).getMealName());
         holder.img.setOnClickListener(new View.OnClickListener(){

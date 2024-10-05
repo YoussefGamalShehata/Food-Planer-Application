@@ -1,10 +1,14 @@
 package com.example.yumyay_chef.homepage.homepageview;
 
+<<<<<<< HEAD
 import android.annotation.SuppressLint;
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+<<<<<<< HEAD
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,13 +21,26 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.example.yumyay_chef.NetworkFragment;
+=======
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 import com.example.yumyay_chef.R;
 import com.example.yumyay_chef.db.MealsLocalDataSourceImpl;
 import com.example.yumyay_chef.homepage.homepagepresenter.HomePagePresenter;
 import com.example.yumyay_chef.homepage.homepagepresenter.HomePagePresenterImpl;
+<<<<<<< HEAD
 import com.example.yumyay_chef.mealsDetails.view.MealContentFragment;
 import com.example.yumyay_chef.model.Category;
 import com.example.yumyay_chef.model.Country;
+=======
+import com.example.yumyay_chef.model.Category;
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 import com.example.yumyay_chef.model.Meal;
 import com.example.yumyay_chef.model.MealsRepositoryImpl;
 import com.example.yumyay_chef.network.MealRemoteDataSourceImpl;
@@ -32,12 +49,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+<<<<<<< HEAD
 public class HomePageFragment extends Fragment implements HomePageFragmentView,HomePageCategoryAdapter.OnCategoryClickListener,HomePageClickListener,CountryAdapter.OnCountryClickListener{
+=======
+public class HomePageFragment extends Fragment implements HomePageFragmentView,HomePageCategoryAdapter.OnCategoryClickListener {
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 
     public static final String TAG = "HomeActivity";
     private RecyclerView recyclerView;
     private RecyclerView recyclerView2;
     private RecyclerView recyclerView3;
+<<<<<<< HEAD
     private RecyclerView recyclerView4;
     private RecyclerView recyclerView5;
 
@@ -62,6 +84,15 @@ public class HomePageFragment extends Fragment implements HomePageFragmentView,H
     private ProgressBar progressBar7;
 
 
+=======
+    private HomePageRandomAdapter homePageRandomAdapter;
+    private HomePageCategoryAdapter homePageCategoryAdapter;
+    private HomePageCategoryDetailsAdapter homePageCategoryDetailsAdapter;
+    HomePagePresenter homePagePresenter;
+    LinearLayoutManager linearLayout;
+    LinearLayoutManager linearLayout2;
+    LinearLayoutManager  linearLayout3;
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +105,7 @@ public class HomePageFragment extends Fragment implements HomePageFragmentView,H
 
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
         initUI(view);
+<<<<<<< HEAD
         if (!NetworkFragment.isNetworkAvailable(getContext())) {
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container, NetworkFragment.newInstance());
@@ -89,6 +121,8 @@ public class HomePageFragment extends Fragment implements HomePageFragmentView,H
             hideProgressBarAfterDelay(progressBar6);
             hideProgressBarAfterDelay(progressBar7);
         }
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         recyclerView.setHasFixedSize(true);
         linearLayout = new LinearLayoutManager(getActivity());
         homePageRandomAdapter = new HomePageRandomAdapter(getActivity(),new ArrayList<>());
@@ -105,14 +139,21 @@ public class HomePageFragment extends Fragment implements HomePageFragmentView,H
         recyclerView2.setAdapter(homePageCategoryAdapter);
 
         homePageCategoryAdapter.setOnCategoryClickListener(this);
+<<<<<<< HEAD
 
         recyclerView3.setHasFixedSize(true);
         linearLayout3 = new LinearLayoutManager(getActivity());
         homePageCategoryDetailsAdapter = new HomePageCategoryDetailsAdapter(getActivity(),new ArrayList<>(),this);
+=======
+        recyclerView3.setHasFixedSize(true);
+        linearLayout3 = new LinearLayoutManager(getActivity());
+        homePageCategoryDetailsAdapter = new HomePageCategoryDetailsAdapter(getActivity(),new ArrayList<>());
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         linearLayout3.setOrientation(RecyclerView.HORIZONTAL);
         recyclerView3.setLayoutManager(linearLayout3);
         recyclerView3.setAdapter(homePageCategoryDetailsAdapter);
 
+<<<<<<< HEAD
         recyclerView4.setHasFixedSize(true);
         GridLayoutManager layoutManager4 = new GridLayoutManager(getActivity(), 2);
         //linearLayout4 = new LinearLayoutManager(getActivity());
@@ -134,12 +175,18 @@ public class HomePageFragment extends Fragment implements HomePageFragmentView,H
         homePagePresenter.getCategoryMealHP();
         homePagePresenter.getMealsByCategoryHP(HomePageCategoryAdapter.id);
         homePagePresenter.getMealsByCountryHP(CountryAdapter.name);
+=======
+        homePagePresenter.getRandomMealHP();
+        homePagePresenter.getCategoryMealHP();
+        homePagePresenter.getMealsByCategoryHP(HomePageCategoryAdapter.id);
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         return  view;
     }
     private void initUI(View v){
         recyclerView = v.findViewById(R.id.recView);
         recyclerView2 = v.findViewById(R.id.recView2);
         recyclerView3=v.findViewById(R.id.recView3);
+<<<<<<< HEAD
         recyclerView4=v.findViewById(R.id.recView4);
         recyclerView5=v.findViewById(R.id.recView5);
 
@@ -168,12 +215,18 @@ public class HomePageFragment extends Fragment implements HomePageFragmentView,H
         dialog.show();
     }
 
+=======
+    }
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
     @Override
     public void showRandomMealData(List<Meal> meals) {
         homePageRandomAdapter.setList(meals);
         homePageRandomAdapter.notifyDataSetChanged();
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
     @Override
         public void showRandomMealErrMsg(String error) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -181,14 +234,20 @@ public class HomePageFragment extends Fragment implements HomePageFragmentView,H
             AlertDialog dialog = builder.create();
             dialog.show();
         }
+<<<<<<< HEAD
 
         @SuppressLint("NotifyDataSetChanged")
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         @Override
         public void showCategoryData(List<Category> categories) {
             homePageCategoryAdapter.setList(categories);
             homePageCategoryAdapter.notifyDataSetChanged();
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         @Override
         public void showCategoryErrMsg(String error) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -196,8 +255,11 @@ public class HomePageFragment extends Fragment implements HomePageFragmentView,H
             AlertDialog dialog = builder.create();
             dialog.show();
         }
+<<<<<<< HEAD
 
         @SuppressLint("NotifyDataSetChanged")
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         @Override
         public void showCategoryMeal(List<Meal> meal) {
             homePageCategoryDetailsAdapter.setList(meal);
@@ -210,6 +272,7 @@ public class HomePageFragment extends Fragment implements HomePageFragmentView,H
             AlertDialog dialog = builder.create();
             dialog.show();
         }
+<<<<<<< HEAD
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
@@ -264,4 +327,10 @@ public class HomePageFragment extends Fragment implements HomePageFragmentView,H
             }
         }, 3000);
     }
+=======
+        @Override
+        public void onCategoryClick(String categoryId) {
+            homePagePresenter.getMealsByCategoryHP(categoryId);
+    }
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 }

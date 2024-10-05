@@ -56,7 +56,11 @@
         android:layout_width="409dp"
         android:layout_height="770dp"
         app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+<<<<<<< HEAD
         tools:layout_editor_absoluteX="1dp"
         tools:ignore="MissingConstraints" />
 
+=======
+        tools:layout_editor_absoluteX="1dp" />
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 </androidx.constraintlayout.widget.ConstraintLayout>

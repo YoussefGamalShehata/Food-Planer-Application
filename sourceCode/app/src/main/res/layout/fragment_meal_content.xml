@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context=".mealsDetails.view.MealContentFragment">
+=======
+    tools:context=".mealcontent.view.MealContentFragment">
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -129,13 +133,17 @@
             app:layout_constraintStart_toStartOf="@+id/webViedo"
             app:layout_constraintTop_toTopOf="@+id/webViedo" />
 
+<<<<<<< HEAD
         <!-- Fullscreen WebView -->
 
         <!-- Add to Favorite Button -->
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
         <Button
             android:id="@+id/btnAddFav"
             android:layout_width="183dp"
             android:layout_height="38dp"
+<<<<<<< HEAD
             android:layout_marginTop="14dp"
             android:layout_marginEnd="14dp"
             android:layout_marginBottom="41dp"
@@ -152,10 +160,17 @@
             android:layout_marginTop="52dp"
             android:layout_marginEnd="12dp"
             android:text="@string/addtoplan"
+=======
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/addfav"
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/txtName" />
 
+<<<<<<< HEAD
         <ImageButton
             android:id="@+id/imgBtnFav"
             android:layout_width="67dp"
@@ -181,6 +196,8 @@
             app:layout_constraintStart_toEndOf="@+id/mealImg"
             tools:layout_editor_absoluteY="143dp"
             tools:ignore="MissingConstraints" />
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

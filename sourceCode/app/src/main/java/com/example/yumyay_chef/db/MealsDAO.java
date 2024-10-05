@@ -6,10 +6,15 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+<<<<<<< HEAD
 import androidx.room.Update;
 
 import com.example.yumyay_chef.model.Meal;
 import com.example.yumyay_chef.model.MealPlan;
+=======
+
+import com.example.yumyay_chef.model.Meal;
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 
 import java.util.List;
 @Dao
@@ -22,6 +27,7 @@ public interface MealsDAO {
 
     @Delete
     void deleteMeal(Meal product);
+<<<<<<< HEAD
 
     @Query("SELECT EXISTS(SELECT 1 FROM meal_table WHERE mealId = :MealId)")
     boolean isMealExists(String MealId);
@@ -37,4 +43,6 @@ public interface MealsDAO {
     @Update
     void updateMealPlan(MealPlan foodPlan);
 
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 }

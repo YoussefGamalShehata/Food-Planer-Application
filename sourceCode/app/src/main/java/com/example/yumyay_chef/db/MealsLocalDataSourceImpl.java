@@ -5,7 +5,10 @@ import android.content.Context;
 import androidx.lifecycle.LiveData;
 
 import com.example.yumyay_chef.model.Meal;
+<<<<<<< HEAD
 import com.example.yumyay_chef.model.MealPlan;
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 
 import java.util.List;
 
@@ -51,6 +54,7 @@ public class MealsLocalDataSourceImpl implements MealsLocalDataSource{
     public LiveData<List<Meal>> getAllStoredMeals() {
         return  storedMeals;
     }
+<<<<<<< HEAD
 
     @Override
     public LiveData<List<MealPlan>> getPlannedFood(String date) {
@@ -95,4 +99,6 @@ public class MealsLocalDataSourceImpl implements MealsLocalDataSource{
         }).start();
     }
 
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 }

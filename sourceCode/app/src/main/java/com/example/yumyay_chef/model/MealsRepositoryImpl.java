@@ -56,7 +56,11 @@ public class MealsRepositoryImpl implements MealsRepository{
 
     @Override
     public void getMealById(String id, NetworkCallBack<Meal> callback) {
+<<<<<<< HEAD
         remoteSource.makeNetworkCallMealById(id,callback);
+=======
+        remoteSource.makeNetworkCallFoodById(id,callback);
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
     }
     @Override
     public void getMealByCategory(String id, NetworkCallBack<Meal> callback) {
@@ -76,6 +80,7 @@ public class MealsRepositoryImpl implements MealsRepository{
     public void getMealByName(String name, NetworkCallBack<Meal> callback) {
         remoteSource.makeNetworkCallMealByName(name,callback);
     }
+<<<<<<< HEAD
 
     @Override
     public LiveData<List<MealPlan>> getPlannedMeal(String date) {
@@ -106,4 +111,6 @@ public class MealsRepositoryImpl implements MealsRepository{
     public void checkFoodExists(Meal meal) {
         localDataSource.checkProductExists(meal);
     }
+=======
+>>>>>>> 47c590402c826035d665cdbd9cfe354d32a47e3a
 }
