@@ -81,7 +81,7 @@ public class CountryDetalisAdapter extends RecyclerView.Adapter<CountryDetalisAd
                 if (listener != null) {
                     listener.onMealClick(meals.get(position).getMealId());
                 }
-                Toast.makeText(view.getContext(), "Hi from button" + " added to cart", Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), meals.get(position).getMealName() + "is Available", Toast.LENGTH_SHORT).show();
             }
         });
     }
