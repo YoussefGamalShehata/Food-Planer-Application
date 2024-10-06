@@ -1,11 +1,13 @@
 package com.example.yumyay_chef.calender.view;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -81,6 +83,19 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderAdapter.ViewHo
                         .addToBackStack(null).commit();
             }
         });
+        holder.imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(context)
+                        .setMessage("Are you sure you want to remove this meal from favorites?")
+                        .setPositiveButton("Yes", (dialog, which) -> {
+                            listener.onRemoveClick(values.get(position));
+                            notifyItemRemoved(position);
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+            }
+        });
 
     }
 
@@ -92,6 +107,7 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderAdapter.ViewHo
 
         private ImageView imageView;
         private TextView txtTitle;
+        private ImageButton imageButton;
         private View layout;
 
         public ViewHolder(@NonNull View itemView) {
@@ -99,6 +115,7 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderAdapter.ViewHo
             layout=itemView;
             txtTitle=itemView.findViewById(R.id.textView);
             imageView=itemView.findViewById(R.id.imgbtn);
+            imageButton = itemView.findViewById(R.id.imageButton3);
 
         }
     }

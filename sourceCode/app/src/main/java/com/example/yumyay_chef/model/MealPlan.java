@@ -3,6 +3,7 @@ package com.example.yumyay_chef.model;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
@@ -10,7 +11,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
-@Entity(tableName = "meal_plan")
+@Entity(tableName = "meal_plan",indices = {@Index(value = {"mealId","date"},unique = true)})
 public class MealPlan implements Serializable {
     @NonNull
     @PrimaryKey(autoGenerate = true)

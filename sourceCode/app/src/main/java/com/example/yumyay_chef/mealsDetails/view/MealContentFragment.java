@@ -55,6 +55,7 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
     private Button addPlan;
     private ImageButton imgFav;
     private ImageButton imgPlan;
+    private TextView textArea;
     private String selectedDate;
     private MealsRepositoryImpl _repo;
 
@@ -120,6 +121,7 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
         mealVideo = view.findViewById(R.id.webViedo);
         addBtn = view.findViewById(R.id.btnAddFav);
         addPlan = view.findViewById(R.id.btnAddPlan);
+        textArea = view.findViewById(R.id.mealArea);
         setupWebView();
         loadImage();
         setMealDetails();
@@ -149,6 +151,7 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
 
 
         mealTitle.setText(meal.getMealName());
+        textArea.setText(meal.getArea());
         mealDesc.setText(formattedText.toString().trim());
 
         String youtubeEmbedUrl = "https://www.youtube.com/embed/" + getYoutubeVideoId(meal.getYoutubeUrl());

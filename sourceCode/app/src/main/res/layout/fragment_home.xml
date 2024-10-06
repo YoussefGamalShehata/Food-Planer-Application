@@ -10,9 +10,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:layout_marginTop="32dp"> <!-- Added marginTop to move content down -->
+
+        <!-- YumyYay-Chef Title -->
 
         <!-- Daily Inspiration Meal Section -->
+        <TextView
+            android:id="@+id/textViewChef"
+            android:layout_width="207dp"
+            android:layout_height="43dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/yum"
+            android:textColor="@android:color/black"
+            android:textSize="32sp"
+            android:textStyle="bold" />
 
         <FrameLayout
             android:layout_width="match_parent"

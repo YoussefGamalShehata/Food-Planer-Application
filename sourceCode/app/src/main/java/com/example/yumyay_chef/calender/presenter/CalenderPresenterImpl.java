@@ -20,7 +20,7 @@ public class CalenderPresenterImpl implements CalenderPresenter{
 //        this.date=date;
 //    }
     @Override
-    public LiveData<List<MealPlan>> getPlanedFood(String date) {
+    public LiveData<List<MealPlan>> getPlanedMeal(String date) {
         return _repo.getPlannedMeal(date);
     }
 

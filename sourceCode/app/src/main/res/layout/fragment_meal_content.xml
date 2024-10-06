@@ -19,14 +19,14 @@
         <!-- Meal Image -->
         <ImageView
             android:id="@+id/mealImg"
-            android:layout_width="0dp"
-            android:layout_height="329dp"
+            android:layout_width="417dp"
+            android:layout_height="328dp"
             android:layout_margin="16dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_launcher_background"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Meal Name -->
         <TextView
@@ -170,6 +170,21 @@
             app:layout_constraintEnd_toEndOf="@id/webViedo"
             app:layout_constraintStart_toStartOf="@id/webViedo"
             app:layout_constraintTop_toTopOf="@id/webViedo" />
+
+        <TextView
+            android:id="@+id/mealArea"
+            android:layout_width="141dp"
+            android:layout_height="57dp"
+            android:text="TextView"
+            android:textColor="#55AD9B"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintEnd_toStartOf="@+id/imgBtnPlan"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toEndOf="@+id/imgBtnFav"
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            app:layout_constraintVertical_bias="0.613" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

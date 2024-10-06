@@ -69,13 +69,12 @@ public class CalenderFragment extends Fragment implements CalenderView,OnCalende
                         // Format the selected date
                         String selectedDate = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
 
-                        plannedFood=calendarPresenter.getPlanedFood(selectedDate);
+                        plannedFood=calendarPresenter.getPlanedMeal(selectedDate);
                         plannedFood.observe(getViewLifecycleOwner(), new Observer<List<MealPlan>>() {
                             @Override
-                            public void onChanged(List<MealPlan> foodPlans) {
+                                public void onChanged(List<MealPlan> mealPlans) {
                                 // Update the adapter with new data
-                                adapter.setList(foodPlans);
-                                adapter.notifyDataSetChanged();
+                                showData(mealPlans);
                             }
                         });
 
@@ -111,7 +110,7 @@ public class CalenderFragment extends Fragment implements CalenderView,OnCalende
     }
 
     @Override
-    public void onRemoveFromFavClick(MealPlan mealPlan) {
+    public void onRemoveClick(MealPlan mealPlan) {
         calendarPresenter.removeFromFav(mealPlan);
         adapter.notifyDataSetChanged();
     }

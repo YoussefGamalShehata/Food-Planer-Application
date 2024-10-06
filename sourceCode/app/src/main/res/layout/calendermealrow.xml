@@ -7,10 +7,10 @@
     app:cardElevation="4dp">
 
     <LinearLayout
-        android:layout_width="308dp"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
+        android:layout_width="388dp"
+        android:layout_height="wrap_content"
         android:background="#F1F8E8"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="16dp">
 
@@ -40,6 +40,14 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="19dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            app:srcCompat="@drawable/trash" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

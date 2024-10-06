@@ -1,6 +1,7 @@
 package com.example.yumyay_chef.favoritemeals.view;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,6 +26,7 @@ import com.example.yumyay_chef.model.Meal;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class FavoritePageAdapter extends RecyclerView.Adapter<FavoritePageAdapter.ViewHolder>{
 
@@ -91,9 +93,17 @@ public class FavoritePageAdapter extends RecyclerView.Adapter<FavoritePageAdapte
         holder.imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onFavRemoveMealClick(meal);
-            }
-        });
+                new AlertDialog.Builder(context)
+                        .setMessage("Are you sure you want to remove this meal from favorites?")
+                        .setPositiveButton("Yes", (dialog, which) -> {
+                            listener.onFavRemoveMealClick(meal);
+                            notifyItemRemoved(position);
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+                        }
+
+                                });
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
