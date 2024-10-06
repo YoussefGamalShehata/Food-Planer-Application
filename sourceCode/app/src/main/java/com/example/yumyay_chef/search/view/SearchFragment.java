@@ -1,6 +1,7 @@
 package com.example.yumyay_chef.search.view;
 
 import android.app.AlertDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,7 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -69,7 +71,11 @@ public class SearchFragment extends Fragment implements SearchFragmentView, OnSe
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(serAdapter);
+        int searchTextId = searchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+        EditText searchEditText = searchView.findViewById(searchTextId);
 
+        // Set the text color to black
+        searchEditText.setTextColor(Color.BLACK);
         tableLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

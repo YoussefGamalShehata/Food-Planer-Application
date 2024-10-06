@@ -56,16 +56,6 @@
             android:paddingTop="4dp"/>
 
         <!-- Add to Cart Button -->
-        <Button
-            android:id="@+id/button_add_to_cart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/rating_layout"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="@android:color/white"
-            android:text="Add to Cart"
-            android:textColor="@android:color/black"
-            android:padding="8dp" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
