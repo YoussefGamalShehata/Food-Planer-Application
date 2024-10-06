@@ -87,7 +87,7 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 new AlertDialog.Builder(context)
-                        .setMessage("Are you sure you want to remove this meal from favorites?")
+                        .setMessage("Are you sure you want to remove this meal from Plan?")
                         .setPositiveButton("Yes", (dialog, which) -> {
                             listener.onRemoveClick(values.get(position));
                             notifyItemRemoved(position);

@@ -3,8 +3,10 @@ package com.example.yumyay_chef.mealsDetails.view;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,8 +37,12 @@ import com.example.yumyay_chef.model.MealsRepositoryImpl;
 import com.example.yumyay_chef.network.MealRemoteDataSourceImpl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class MealContentFragment extends Fragment implements OnClickAddToFavListener ,MealContentFragmentView{
 
@@ -104,6 +110,7 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
                     Toast.makeText(getContext(), "Selected date: " + selectedDate, Toast.LENGTH_SHORT).show();
                     mealPlan = Converter.convertToPlanClass(meal, selectedDate);
                     _repo.insertMealPlan(mealPlan);
+                    saveMealToCalendar(meal.getMealName(),stringToDate(selectedDate),meal.getInstructions());
                 });
 
                 dialogFragment.show(getParentFragmentManager(), "calendarDialog");
@@ -247,7 +254,36 @@ public class MealContentFragment extends Fragment implements OnClickAddToFavList
         fragment.setArguments(args);
         return fragment;
     }
+    private void saveMealToCalendar(String mealTitle, Date selectedDate, String Description) {
+        // Convert Date to milliseconds
+        long startTime = selectedDate.getTime();
 
+        // Create the intent to insert the event
+        Intent intent = new Intent(Intent.ACTION_INSERT)
+                .setData(CalendarContract.Events.CONTENT_URI)
+                .putExtra(CalendarContract.Events.TITLE, mealTitle)
+                .putExtra(CalendarContract.Events.DESCRIPTION,  Description)
+                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startTime)
+                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, startTime)
+                .putExtra(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
+
+        // Check if any app can handle the intent and launch it
+        if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(getContext(), "No calendar app available", Toast.LENGTH_SHORT).show();
+        }
+    }
+    private Date stringToDate(String dateString) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("d/M/yyyy"); // Define the expected date format
+        Date date = null;
+        try {
+            date = dateFormat.parse(dateString); // Attempt to parse the string into a Date object
+        } catch (ParseException e) {
+            e.printStackTrace(); // Print stack trace for debugging
+        }
+        return date; // Return the Date object (or null if parsing failed)
+    }
     private void initUI(View view) {
         recyclerView = view.findViewById(R.id.rec2);
     }
